@@ -24,9 +24,7 @@ const VISUAL_CATEGORIES = [
   { id: 'cheesecake', label: 'Cheesecakes', img: '/cheesecake_salgado_oficial.jpeg' },
   { id: 'torta-vienense', label: 'Torta Vienense', img: '/torta_vienense_oficial.jpeg' },
   { id: 'taca-gourmet', label: 'Taças Gourmet', img: '/taca_gourmet_oficial.jpeg' },
-  { id: 'tortinha-baby', label: 'Mini Tortinhas', img: 'https://images.unsplash.com/photo-1511081692775-05d0f180a065?w=150&q=80&fit=crop' },
-  { id: 'dadinho', label: 'Dadinho Tapioca', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=150&q=80&fit=crop' },
-  { id: 'terrine', label: 'Terrines', img: 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=150&q=80&fit=crop' },
+  { id: 'terrine', label: 'Terrine Doce & Salgado', img: '/terrine_doce_e_salgado.jpeg' },
 ];
 
 interface CategoryNavProps {

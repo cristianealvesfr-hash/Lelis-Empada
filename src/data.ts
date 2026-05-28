@@ -1969,15 +1969,70 @@ export const PRODUCTS: Product[] = [
 
   // --- Terrines ---
   {
-    id: 'ter01',
+    id: 'ter-c01',
     category: 'terrine',
-    code: 'TE01',
-    title: 'Terrine de Gorgonzola, Figo e Nozes',
-    description: 'Terrine francesa sofisticada com queijo gorgonzola cremoso, nozes picadas e compota de figo.',
-    priceNormal: 42.00,
+    code: 'C01',
+    title: 'Frutas vermelhas artesanal e nozes',
+    description: '(Decorado conforme sabor). Massa: queijo ricota com cream cheese.',
+    priceNormal: 225.00,
     priceFesta: 0,
-    imageUrl: 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=500&q=80&fit=crop',
-    isAvailableNow: false
+    imageUrl: '/terrine_doce_e_salgado.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ter-c02',
+    category: 'terrine',
+    code: 'C02',
+    title: 'Castanha caramelizada com dasmasco',
+    description: '(Decorado conforme sabor). Massa: queijo ricota com cream cheese.',
+    priceNormal: 225.00,
+    priceFesta: 0,
+    imageUrl: '/terrine_doce_e_salgado.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ter-c03',
+    category: 'terrine',
+    code: 'C03',
+    title: 'Romeu e julieta',
+    description: '(Decorado conforme sabor). Massa: queijo ricota com cream cheese.',
+    priceNormal: 180.00,
+    priceFesta: 0,
+    imageUrl: '/terrine_doce_e_salgado.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ter-c04',
+    category: 'terrine',
+    code: 'C04',
+    title: 'Camarão com parmesão',
+    description: '(Decorado conforme sabor). Massa: queijo ricota com cream cheese.',
+    priceNormal: 240.00,
+    priceFesta: 0,
+    imageUrl: '/terrine_doce_e_salgado.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ter-c05',
+    category: 'terrine',
+    code: 'C05',
+    title: 'Pesto de tomate seco, e gorgonzola e parmesão',
+    description: '(Decorado conforme sabor). Massa: queijo ricota com cream cheese.',
+    priceNormal: 240.00,
+    priceFesta: 0,
+    imageUrl: '/terrine_doce_e_salgado.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ter-c06',
+    category: 'terrine',
+    code: 'C06',
+    title: 'Presunto de parma com pera caramelizada, cerejas, amêndoas em lascas',
+    description: '(Decorado conforme sabor). Massa: queijo ricota com cream cheese.',
+    priceNormal: 247.00,
+    priceFesta: 0,
+    imageUrl: '/terrine_doce_e_salgado.jpeg',
+    isAvailableNow: true
   },
   {
     id: 'baby-x01',
