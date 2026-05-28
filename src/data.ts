@@ -1,0 +1,2202 @@
+export interface Product {
+  id: string;
+  category: 'simples' | 'especiais' | 'paozinho' | 'pasteis' | 'hamburguer' | 'barca';
+  code: string;
+  title: string;
+  description?: string;
+  priceNormal: number;
+  priceFesta: number;
+  priceFestaIntegral?: number;
+  pricePequena?: number;
+  priceMedia?: number;
+  priceGrande?: number;
+  priceTorta20cm?: number;
+  priceMiniBaby?: number;
+  priceSufle20cm?: number;
+  priceSufle30cm?: number;
+  imageUrl: string;
+  isAvailableNow?: boolean;
+}
+
+export const BARCA_SIMPLES = [
+  { code: 'E01', title: 'Lombinho' },
+  { code: 'E02', title: 'Brigadeiro cremoso' },
+  { code: 'E03', title: 'Doce de leite' },
+  { code: 'E04', title: 'Frango cremoso com queijo' },
+  { code: 'E05', title: 'Leite moça com geleia de damasco' },
+  { code: 'E06', title: 'Peito de peru defumado' },
+  { code: 'E07', title: 'Frango cremoso com bacon' },
+  { code: 'E08', title: 'Queijo cremoso com cebola' },
+  { code: 'E09', title: 'Queijo e presunto' },
+  { code: 'E10', title: 'Acebolado (calabresa, bacon, e cebola)' },
+  { code: 'E11', title: 'Romeu e julieta' }
+];
+
+export const BARCA_ESPECIAIS = [
+  { code: 'A01', title: 'Costela com barbecue' },
+  { code: 'A02', title: 'Canapés (camarão com kani, azeitonas, queijo)' },
+  { code: 'A03', title: 'Camarão com queijo e pimenta bico' },
+  { code: 'A04', title: 'Sertanejo com fumeiro, banana da terra caramelizada' },
+  { code: 'A05', title: 'Queijo reino com geleia de damasco' },
+  { code: 'A06', title: 'Salmão amanteigado com geleia de maracujá caseiro' },
+  { code: 'A07', title: 'Supremo de alho poró (dois queijos, alho poró e calabresa)' },
+  { code: 'A08', title: 'Queijo gouda com geleia de framboesa' },
+  { code: 'A09', title: 'Gorgonzola com cream cheese e nozes' },
+  { code: 'A10', title: 'Carne seca com queijo coalho' },
+  { code: 'A11', title: 'Palmito com bacon, queijo e cebola caramelizada' },
+  { code: 'A12', title: 'Mix com geleia de acerola (com frango, bacon e ameixa)' },
+  { code: 'A13', title: 'Quatro queijos' },
+  { code: 'A14', title: 'Queijo coalho com banana caramelizada' },
+  { code: 'A15', title: 'Bacalhau cremoso com azeitonas' },
+  { code: 'A16', title: 'Peito de peru agridoce, castanha caramelizada com toque de parmesão' },
+  { code: 'A17', title: 'Chester (PEITO DE FRANGO DEFUMADO) com geleia de laranja artesanal' },
+  { code: 'A18', title: 'Linguiça artesanal com pesto de tomate seco e parmesão' },
+  { code: 'A19', title: 'Tropical (com abacaxi)' }
+];
+
+export const CATEGORIES = [
+  { id: 'simples', label: 'Empadas Simples' },
+  { id: 'especiais', label: 'Empadas Especiais' },
+  { id: 'paozinho', label: 'Pãozinho Delícia' },
+  { id: 'pasteis', label: 'Mini Pastéis (massa folheada)' },
+  { id: 'hamburguer', label: 'Mini Hambúrguer' },
+  { id: 'barca', label: 'Barca Gourmet' },
+  { id: 'quiche', label: 'Quiches' },
+  { id: 'torta-maca', label: 'Torta de Maçã' },
+  { id: 'sanduiche', label: 'Mini Sanduíche Especial' },
+  { id: 'quibe', label: 'Quibe Recheado Assado' },
+  { id: 'sufle', label: 'Suflê Salgado de Milho' },
+  { id: 'camarao', label: 'Camarão Encapotado (assado)' },
+  { id: 'rocambole', label: 'Rocambole Salgado' },
+  { id: 'pao-saboroso', label: 'Pão Saboroso' },
+  { id: 'torta-alta', label: 'Mini Torta Alta' },
+  { id: 'torta-baby', label: 'Mini Torta Baby' },
+  { id: 'dadinho', label: 'Dadinho de Tapioca' },
+  { id: 'bolo-caseiro', label: 'Bolo Caseiro (Carimã/Aipim)' },
+  { id: 'torta-salgada', label: 'Torta Salgada' },
+  { id: 'cheesecake', label: 'Cheesecake Salgado' },
+  { id: 'torta-vienense', label: 'Torta Vienense Especial' },
+  { id: 'taca-gourmet', label: 'Taça Gourmet (salgada)' },
+  { id: 'tortinha-baby', label: 'Mini Tortinhas' },
+  { id: 'dadinho', label: 'Dadinho de Tapioca' },
+  { id: 'terrine', label: 'Terrine Doce & Salgado' },
+];
+
+export const PRODUCTS: Product[] = [
+  // --- Sabores Simples (Empadas Gourmet) ---
+  {
+    id: 's01',
+    category: 'simples',
+    code: 'S01',
+    title: 'Beijinho natural',
+    description: 'Empada doce recheada com coco ralado fresco e leite condensado cremoso.',
+    priceNormal: 4.50,
+    priceFesta: 2.70,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's02',
+    category: 'simples',
+    code: 'S02',
+    title: 'Lombinho',
+    description: 'Massa fina que derrete na boca recheada com lombo desfiado de porco canadense.',
+    priceNormal: 4.50,
+    priceFesta: 2.50,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 's03',
+    category: 'simples',
+    code: 'S03',
+    title: 'Napolitano',
+    description: 'Recheio cremoso e pedacinhos de presunto, bacon, queijo, cebola e champignon.',
+    priceNormal: 4.50,
+    priceFesta: 2.50,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's04',
+    category: 'simples',
+    code: 'S04',
+    title: 'Tortinha de limão',
+    description: 'Creme leve e azedinho de limão com cobertura especial e raspinhas.',
+    priceNormal: 4.50,
+    priceFesta: 2.60,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's05',
+    category: 'simples',
+    code: 'S05',
+    title: 'Brigadeiro',
+    description: 'Recheio de brigadeiro gourmet artesanal coberto com chocolate granulado.',
+    priceNormal: 4.50,
+    priceFesta: 2.60,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's06',
+    category: 'simples',
+    code: 'S06',
+    title: 'Doce de leite',
+    description: 'Empada doce recheada com doce de leite caseiro cremoso.',
+    priceNormal: 4.50,
+    priceFesta: 2.60,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's07',
+    category: 'simples',
+    code: 'S07',
+    title: 'Frango cremoso',
+    description: 'O clássico de frango desfiado temperado com cheiro verde e catupiry.',
+    priceNormal: 4.50,
+    priceFesta: 2.40,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 's08',
+    category: 'simples',
+    code: 'S08',
+    title: 'Frango cremoso com queijo',
+    description: 'Frango desfiado temperado com queijo derretido de alta qualidade.',
+    priceNormal: 4.50,
+    priceFesta: 2.50,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's09',
+    category: 'simples',
+    code: 'S09',
+    title: 'Frango cremoso com bacon',
+    description: 'Recheio de frango desfiado temperado com pedaços crocantes de bacon.',
+    priceNormal: 4.50,
+    priceFesta: 2.50,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 's10',
+    category: 'simples',
+    code: 'S10',
+    title: 'Oreo',
+    description: 'Empada doce recheada com ganache cremosa e pedaços de biscoito Oreo.',
+    priceNormal: 4.50,
+    priceFesta: 3.00,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+
+  // --- Sabores Especiais (Empadas Gourmet) ---
+  {
+    id: 'e01',
+    category: 'especiais',
+    code: 'E01',
+    title: 'Carne do sol com coalho',
+    description: 'Carne do sol desfiada e acebolada combinada com cubos de queijo coalho grelhado.',
+    priceNormal: 5.50,
+    priceFesta: 3.20,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'e02',
+    category: 'especiais',
+    code: 'E02',
+    title: 'Carne seca com queijo coalho',
+    description: 'Carne seca desfiada e temperada combinada com queijo coalho derretido.',
+    priceNormal: 5.50,
+    priceFesta: 3.20,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e03',
+    category: 'especiais',
+    code: 'E03',
+    title: 'Tropical especial (com abacaxi)',
+    description: 'Combinação agridoce surpreendente de presunto picado, queijo e abacaxi.',
+    priceNormal: 5.50,
+    priceFesta: 3.00,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e04',
+    category: 'especiais',
+    code: 'E04',
+    title: 'Mix de presunto parma com nozes, mel e pera',
+    description: 'Combinação refinada de presunto parma, nozes, mel e pera caramelizada.',
+    priceNormal: 5.50,
+    priceFesta: 3.40,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e05',
+    category: 'especiais',
+    code: 'E05',
+    title: 'Camarão puro',
+    description: 'Recheio farto de camarões inteiros salteados (sem catupiry ou pimenta).',
+    priceNormal: 5.50,
+    priceFesta: 2.85,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e06',
+    category: 'especiais',
+    code: 'E06',
+    title: 'Camarão com requeijão e pimenta bico',
+    description: 'Camarões selecionados ao creme de requeijão com toque suave de pimenta biquinho.',
+    priceNormal: 6.00,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e07',
+    category: 'especiais',
+    code: 'E07',
+    title: 'Palmito com bacon, queijo e cebola caramelizada',
+    description: 'Creme de palmito nobre, bacon crocante, queijo e doçura da cebola caramelizada.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e08',
+    category: 'especiais',
+    code: 'E08',
+    title: 'Mix com geleia de acerola',
+    description: 'Frango desfiado, bacon crocante, ameixa preta e geleia artesanal de acerola.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e09',
+    category: 'especiais',
+    code: 'E09',
+    title: 'Presunto de parma agridoce',
+    description: 'Presunto parma desfiado com fios doces e caramelizados.',
+    priceNormal: 6.50,
+    priceFesta: 3.40,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e10',
+    category: 'especiais',
+    code: 'E10',
+    title: 'Costela especial com barbecue',
+    description: 'Costela desfiada desmanchando ao molho barbecue caseiro.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'e11',
+    category: 'especiais',
+    code: 'E11',
+    title: 'Cinco queijos',
+    description: 'Mix derretido de queijos nobres (mussarela, provolone, prato, parmesão e catupiry). Gorgonzola opcional.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e12',
+    category: 'especiais',
+    code: 'E12',
+    title: 'Queijo coalho com banana caramelizada',
+    description: 'O sabor da Bahia: Queijo coalho grelhado com pedaços doces de banana caramelizada.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'e13',
+    category: 'especiais',
+    code: 'E13',
+    title: 'Bacalhau cremoso com azeitonas',
+    description: 'Bacalhau desfiado temperado com azeite, creme e azeitonas pretas picadas.',
+    priceNormal: 6.00,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e14',
+    category: 'especiais',
+    code: 'E14',
+    title: 'Purê de banana da terra',
+    description: 'Purê cremoso de banana da terra com carne de fumeiro desfiada ou carne seca.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e15',
+    category: 'especiais',
+    code: 'E15',
+    title: 'Chester com geleia de laranja',
+    description: 'Peito de chester defumado com cobertura cítrica de geleia de laranja caseira.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e16',
+    category: 'especiais',
+    code: 'E16',
+    title: 'Queijo minas com tomate seco',
+    description: 'Opção leve e refinada com queijo minas macio e tomates secos marinados.',
+    priceNormal: 5.50,
+    priceFesta: 3.40,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e17',
+    category: 'especiais',
+    code: 'E17',
+    title: 'Canapés especial',
+    description: 'Com camarões salteados ao creme, kani kama e azeitona preta fatiada.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e18',
+    category: 'especiais',
+    code: 'E18',
+    title: 'Catado de siri',
+    description: 'Carne de siri temperada no dendê com coco e decorada com camarão fresco.',
+    priceNormal: 5.80,
+    priceFesta: 3.40,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e19',
+    category: 'especiais',
+    code: 'E19',
+    title: 'Sertanejo especial',
+    description: 'Carne de fumeiro desfiada combinada com o adocicado de banana da terra caramelizada.',
+    priceNormal: 6.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'e20',
+    category: 'especiais',
+    code: 'E20',
+    title: 'Queijo reino com geleia de damasco',
+    description: 'Sabor marcante de queijo reino tradicional balanceado com geleia suave de damasco.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e21',
+    category: 'especiais',
+    code: 'E21',
+    title: 'Salmão amanteigado com geleia de maracujá',
+    description: 'Salmão grelhado na manteiga fina com geleia caseira ácida de maracujá.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e22',
+    category: 'especiais',
+    code: 'E22',
+    title: 'Supremo de alho poró com calabresa',
+    description: 'Alho poró fresquinho, calabresa fatiada fina e dois queijos (provolone e mussarela).',
+    priceNormal: 6.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e23',
+    category: 'especiais',
+    code: 'E23',
+    title: 'Queijo gouda com geleia de frutas vermelhas',
+    description: 'Queijo Gouda cremoso com geleia artesanal vermelha e pedaços de amora/framboesa.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e24',
+    category: 'especiais',
+    code: 'E24',
+    title: 'Gorgonzola com damasco e nozes',
+    description: 'Sabor marcante de queijo gorgonzola com toque agridoce de damasco e nozes crocantes.',
+    priceNormal: 6.00,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e25',
+    category: 'especiais',
+    code: 'E25',
+    title: 'Linguiça defumada com pesto e parmesão',
+    description: 'Linguiça defumada moída com molho pesto de tomate seco e crosta de parmesão.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e26',
+    category: 'especiais',
+    code: 'E26',
+    title: 'Carne especial com alho caramelizado',
+    description: 'Blend de carne especial desfiada cozida lentamente com dentes de alho adocicados.',
+    priceNormal: 6.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e27',
+    category: 'especiais',
+    code: 'E27',
+    title: 'Brigadeiro com morango inteiro',
+    description: 'Recheio de brigadeiro (preto ou branco) cremoso com morango fresco inteiro no topo.',
+    priceNormal: 6.00,
+    priceFesta: 3.30,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e29',
+    category: 'especiais',
+    code: 'E29',
+    title: 'Frango cremoso com geleia de pimenta',
+    description: 'Recheio de frango desfiado com uma fina camada especial de geleia de pimenta defumada.',
+    priceNormal: 5.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e30',
+    category: 'especiais',
+    code: 'E30',
+    title: 'Peito de peru com castanha caramelizada',
+    description: 'Peito de peru agridoce fatiado com crocante de castanhas caramelizadas.',
+    priceNormal: 6.50,
+    priceFesta: 3.10,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+  {
+    id: 'e31',
+    category: 'especiais',
+    code: 'E31',
+    title: 'Doce de leite com morango inteiro',
+    description: 'Creme espesso de doce de leite cremoso coroado com um morango fresco por cima.',
+    priceNormal: 6.50,
+    priceFesta: 3.30,
+    imageUrl: '/empadas_real.jpg',
+    isAvailableNow: false
+  },
+
+  // --- Pãozinho Delícia ---
+  {
+    id: 'c01',
+    category: 'paozinho',
+    code: 'C01',
+    title: 'Tradicional (queijo ralado simples - SEM RECHEIO)',
+    description: 'Tradicional pãozinho delícia baiano, super fofinho e coberto com queijo ralado simples.',
+    priceNormal: 1.95,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'c02',
+    category: 'paozinho',
+    code: 'C02',
+    title: 'Tradicional (queijo ralado simples com requeijão)',
+    description: 'Pãozinho delícia clássico e macio recheado com requeijão cremoso.',
+    priceNormal: 2.35,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'c03',
+    category: 'paozinho',
+    code: 'C03',
+    title: 'Parmesão ralado com requeijão',
+    description: 'Massa super fofinha recheada com requeijão e finalizada com queijo parmesão ralado fino.',
+    priceNormal: 2.60,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'c04',
+    category: 'paozinho',
+    code: 'C04',
+    title: 'Peito de peru com parmesão',
+    description: 'Recheado com patê fino de peito de peru defumado e cobertura de queijo parmesão.',
+    priceNormal: 2.75,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'c05',
+    category: 'paozinho',
+    code: 'C05',
+    title: 'Camarão com parmesão',
+    description: 'Combinação gourmet sofisticada de creme de camarão temperado com crosta de queijo parmesão.',
+    priceNormal: 3.10,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'c06',
+    category: 'paozinho',
+    code: 'C06',
+    title: 'Queijo reino',
+    description: 'Recheado com creme de queijo reino tradicional de sabor marcante e cobertura ralada.',
+    priceNormal: 3.10,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'c07',
+    category: 'paozinho',
+    code: 'C07',
+    title: 'Fumeiro com banana e parmesão',
+    description: 'Sabor baiano autêntico: recheio de fumeiro desfiado, banana da terra caramelizada e queijo parmesão.',
+    priceNormal: 2.90,
+    priceFesta: 0,
+    imageUrl: '/paozinho_real.jpg',
+    isAvailableNow: true
+  },
+
+  // --- Mini Pastéis (Massa Folheada) ---
+  {
+    id: 'pas01',
+    category: 'pasteis',
+    code: 'C01',
+    title: 'Ricota com tomate seco, champignon e queijo provolone (pasta)',
+    description: 'Pasta cremosa de ricota temperada, pedaços de tomate seco e provolone em massa folheada crocante.',
+    priceNormal: 0,
+    priceFesta: 3.00,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'pas02',
+    category: 'pasteis',
+    code: 'C02',
+    title: 'Presunto de parma (com geleia de amoras) agridoce e requeijão',
+    description: 'Refinada combinação de presunto parma, doçura da geleia de amoras e cremosidade do requeijão.',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'pas03',
+    category: 'pasteis',
+    code: 'C03',
+    title: 'Lombinho com queijo e requeijão',
+    description: 'Recheio de lombo suíno defumado desfiado, queijo derretido e requeijão cremoso.',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'pas04',
+    category: 'pasteis',
+    code: 'C04',
+    title: 'Frango cremoso com geleia de pimenta e queijo',
+    description: 'Frango desfiado temperado com queijo e o contraste agridoce levemente picante da geleia de pimenta.',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'pas05',
+    category: 'pasteis',
+    code: 'C05',
+    title: 'Peito de peru com abacaxi amanteigado',
+    description: 'Equilíbrio agridoce gourmet: peito de peru defumado com cubos de abacaxi grelhados na manteiga.',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'pas06',
+    category: 'pasteis',
+    code: 'C06',
+    title: 'Carne seca com cebola caramelizada',
+    description: 'Carne seca desfiada e desfiada combinada com o adocicado marcante de cebola caramelizada.',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
+
+  // --- Mini Hambúrguer ---
+  {
+    id: 'ham01',
+    category: 'hamburguer',
+    code: 'L01',
+    title: 'Blend carne, tomate seco, queijo mussarela',
+    description: 'Pão artesanal fofinho, blend bovino suculento, tomate seco premium, queijo mussarela e maionese especial.',
+    priceNormal: 0,
+    priceFesta: 4.20,
+    imageUrl: '/hamburguer_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ham02',
+    category: 'hamburguer',
+    code: 'L02',
+    title: 'Blend carne, salame',
+    description: 'Pão artesanal fofinho, blend bovino grelhado, fatias saborosas de salame e complementos.',
+    priceNormal: 0,
+    priceFesta: 4.20,
+    imageUrl: '/hamburguer_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ham03',
+    category: 'hamburguer',
+    code: 'L03',
+    title: 'Blend carne, queijo, cebola caramelizada (artesanal)',
+    description: 'Pão artesanal fofinho, blend bovino, queijo derretido, cebola caramelizada artesanal e maionese.',
+    priceNormal: 0,
+    priceFesta: 4.20,
+    imageUrl: '/hamburguer_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ham04',
+    category: 'hamburguer',
+    code: 'L04',
+    title: 'Blend carne, requeijão de cheddar',
+    description: 'Pão artesanal fofinho, blend bovino suculento e generosa cobertura de requeijão cheddar cremoso.',
+    priceNormal: 0,
+    priceFesta: 4.20,
+    imageUrl: '/hamburguer_real.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'ham05',
+    category: 'hamburguer',
+    code: 'L05',
+    title: 'Blend de carne, queijo mussarela',
+    description: 'O clássico cheese salada: pão artesanal fofinho, blend bovino grelhado, queijo mussarela e maionese.',
+    priceNormal: 0,
+    priceFesta: 3.90,
+    imageUrl: '/hamburguer_real.jpg',
+    isAvailableNow: true
+  },
+
+  // --- Barca Gourmet ---
+  {
+    id: 'bar01',
+    category: 'barca',
+    code: 'BG01',
+    title: 'Barca Gourmet (28 Empadas)',
+    description: 'Contém 28 empadas tamanho festa. Escolha a sua combinação ideal de sabores.',
+    priceNormal: 89.00,
+    priceFesta: 0,
+    imageUrl: '/empadas_real.jpg', // Temporário enquanto o cliente não sobe a barca.jpg
+    isAvailableNow: true
+  },
+
+  // --- Quiches ---
+  {
+    id: 'qui01',
+    category: 'quiche',
+    code: 'A03',
+    title: 'Tortinha de limão',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 135.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui02',
+    category: 'quiche',
+    code: 'A04',
+    title: 'Atum com queijo',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 140.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui03',
+    category: 'quiche',
+    code: 'A05',
+    title: 'Frango cremoso com queijo',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 125.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui04',
+    category: 'quiche',
+    code: 'A06',
+    title: 'Portuguesa',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 135.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui05',
+    category: 'quiche',
+    code: 'A07',
+    title: 'Queijo e presunto',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 135.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui06',
+    category: 'quiche',
+    code: 'A08',
+    title: 'Romeu e Julieta',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 80.00,
+    priceGrande: 130.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui07',
+    category: 'quiche',
+    code: 'A09',
+    title: 'Queijo com cebola',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 135.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui08',
+    category: 'quiche',
+    code: 'A10',
+    title: 'Frango Cremoso com Bacon',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 140.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui09',
+    category: 'quiche',
+    code: 'A11',
+    title: 'Napolitano (presunto, queijo, bacon, ricota, tomatinho, manjericão e cebola, Champions)',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 135.00,
+    imageUrl: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=500&q=80&fit=crop',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui10',
+    category: 'quiche',
+    code: 'A12',
+    title: 'Peito de peru com bacon e queijo',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 140.00,
+    imageUrl: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=500&q=80&fit=crop',
+    isAvailableNow: true
+  },
+
+  // --- Torta de Maçã ---
+  {
+    id: 'tma01',
+    category: 'torta-maca',
+    code: 'A1/A2',
+    title: 'Torta de Maçã',
+    description: 'Massa: amanteigada com maçã. Escolha entre a versão Torta 20cm (creme branco, castanha de caju, 12 a 15 fatias) ou Mini Baby 8x4.',
+    priceNormal: 0,
+    priceFesta: 0,
+    priceTorta20cm: 155.00,
+    priceMiniBaby: 15.00,
+    imageUrl: '/torta_maca_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Mini Sanduíches Artesanais ---
+  {
+    id: 'san01',
+    category: 'sanduiche',
+    code: 'B01',
+    title: 'Carne seca desfiada com cebola carameliza e queijo',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    priceFestaIntegral: 3.40,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san02',
+    category: 'sanduiche',
+    code: 'B02',
+    title: 'Atum cremoso com azeitonas e nozes',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    priceFestaIntegral: 3.40,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san03',
+    category: 'sanduiche',
+    code: 'B03',
+    title: 'Presunto de Parma agridoce com requeijão',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.30,
+    priceFestaIntegral: 3.40,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san04',
+    category: 'sanduiche',
+    code: 'B04',
+    title: 'Salpicão de frango',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    priceFestaIntegral: 3.40,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san05',
+    category: 'sanduiche',
+    code: 'B05',
+    title: 'Lombinho com queijo / provolone (mistura)',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    priceFestaIntegral: 3.20,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san06',
+    category: 'sanduiche',
+    code: 'B06',
+    title: 'Bacalhau Cremoso com alho poró e queijo',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    priceFestaIntegral: 3.40,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san07',
+    category: 'sanduiche',
+    code: 'B07',
+    title: 'Patê de azeitonas (preta e verde), nozes, damasco, parmesão e requeijão',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.00,
+    priceFestaIntegral: 3.20,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san08',
+    category: 'sanduiche',
+    code: 'B08',
+    title: 'Queijo, presunto, tomate seco, requeijão',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.00,
+    priceFestaIntegral: 3.20,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san09',
+    category: 'sanduiche',
+    code: 'B09',
+    title: 'Peito de peru com provolone',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    priceFestaIntegral: 3.20,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'san10',
+    category: 'sanduiche',
+    code: 'B10',
+    title: 'Frango cremoso com geleia de pimenta e queijo',
+    description: 'Pão de forma normal ou integral (3 camadas).',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    priceFestaIntegral: 3.20,
+    imageUrl: '/mini_sanduiche_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Quibe Recheado Assado ---
+  {
+    id: 'qib01',
+    category: 'quibe',
+    code: 'P01',
+    title: 'Tradicional com requeijão',
+    description: 'Tamanho: 3x3 CM (Todos decorados conforme os sabores).',
+    priceNormal: 0,
+    priceFesta: 2.80,
+    imageUrl: '/quibe_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'qib02',
+    category: 'quibe',
+    code: 'P02',
+    title: 'Geleia de pimenta e requeijão',
+    description: 'Tamanho: 3x3 CM (Todos decorados conforme os sabores).',
+    priceNormal: 0,
+    priceFesta: 3.00,
+    imageUrl: '/quibe_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'qib03',
+    category: 'quibe',
+    code: 'P03',
+    title: 'Tomate seco com parmesão',
+    description: 'Tamanho: 3x3 CM (Todos decorados conforme os sabores).',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/quibe_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'qib04',
+    category: 'quibe',
+    code: 'P04',
+    title: 'Gorgonzola com mel',
+    description: 'Tamanho: 3x3 CM (Todos decorados conforme os sabores).',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/quibe_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Suflês Salgados de Milho ---
+  {
+    id: 'suf01',
+    category: 'sufle',
+    code: 'H01',
+    title: 'Carne seca refogada na cebola (agridoce)',
+    description: 'Suflê Salgado de Milho.',
+    priceNormal: 0,
+    priceFesta: 0,
+    priceSufle20cm: 140.00,
+    priceSufle30cm: 210.00,
+    imageUrl: '/sufle_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'suf02',
+    category: 'sufle',
+    code: 'H02',
+    title: 'Parmesão com amêndoas em lasca',
+    description: 'Suflê Salgado de Milho.',
+    priceNormal: 0,
+    priceFesta: 0,
+    priceSufle20cm: 135.00,
+    priceSufle30cm: 190.00,
+    imageUrl: '/sufle_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Camarão Encapotado (assado) ---
+  {
+    id: 'cam01',
+    category: 'camarao',
+    code: 'B01',
+    title: 'Camarão encapotado (ASSADO com requeijão)',
+    description: 'Tamanhos: 25g (Camarão assado com massa amanteigado e requeijão). Mínimo 30 unidades.',
+    priceNormal: 0,
+    priceFesta: 3.40,
+    imageUrl: '/camarao_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Rocambole Salgado ---
+  {
+    id: 'roc01',
+    category: 'rocambole',
+    code: 'P01',
+    title: 'Carne seca cremoso com requeijão ervas, queijos, e cebola fina na manteiga',
+    description: 'Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'roc02',
+    category: 'rocambole',
+    code: 'P02',
+    title: 'Carne especial com alho caramelizado e provolone',
+    description: 'Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 190.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'roc03',
+    category: 'rocambole',
+    code: 'P03',
+    title: 'Bacon picado frito com frango cremoso, queijo e geleia de pimenta',
+    description: 'Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 180.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'roc04',
+    category: 'rocambole',
+    code: 'P04',
+    title: 'Bacalhau cremoso com alho poró, queijo, e sementes agridoce',
+    description: 'Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'roc05',
+    category: 'rocambole',
+    code: 'P05',
+    title: 'Camarão com queijo, kani gratinado e queijo',
+    description: 'Não trabalhamos com camarão batido. Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'roc06',
+    category: 'rocambole',
+    code: 'P06',
+    title: 'Carne de fumeiro com queijo coalho e banana da terra caramelizada',
+    description: 'Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 180.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'roc07',
+    category: 'rocambole',
+    code: 'P07',
+    title: 'Palmito com bacon e dois queijos com cebola caramelizada',
+    description: 'Massa de aipim. Serve aprox. 15 a 17 fatias. (Todos são decorados conforme sabor escolhido)',
+    priceNormal: 175.00,
+    priceFesta: 0,
+    imageUrl: '/rocambole_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Pão Saboroso ---
+  {
+    id: 'psa01',
+    category: 'pao-saboroso',
+    code: 'L01',
+    title: 'Presunto especial, provolone, bacon, queijo e requeijão',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 95.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa02',
+    category: 'pao-saboroso',
+    code: 'L02',
+    title: 'Acebolado - bacon e calabresa (Queijo mussarela, provolone, e sementes agridoce)',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 95.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa03',
+    category: 'pao-saboroso',
+    code: 'L03',
+    title: 'Lombinho cremoso (Queijo, tomate seco, azeite com ervas)',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 95.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa04',
+    category: 'pao-saboroso',
+    code: 'L04',
+    title: 'Frango cremoso (Queijo gouda, geleia de pimenta especial, azeite)',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 95.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa05',
+    category: 'pao-saboroso',
+    code: 'L05',
+    title: 'Queijo reino cremoso (Peito de peru defumado, damasco, alface, azeite com ervas)',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa06',
+    category: 'pao-saboroso',
+    code: 'L06',
+    title: 'Atum cremoso com azeitonas agridoce (Queijo mussarela, provolone, cebola roxa gratinada, azeite)',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa07',
+    category: 'pao-saboroso',
+    code: 'L07',
+    title: 'Carne desfiada especial (Queijo mussarela com provolone, alho caramelizado, azeite com ervas)',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa08',
+    category: 'pao-saboroso',
+    code: 'L08',
+    title: 'Fumeiro amanteigado com queijo coalho e banana da terra caramelizada',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 110.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa09',
+    category: 'pao-saboroso',
+    code: 'L09',
+    title: 'Peito de peru com provolone, queijo mussarela',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 100.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa10',
+    category: 'pao-saboroso',
+    code: 'L10',
+    title: 'Peito de peru com castanha caramelizada, queijo',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa11',
+    category: 'pao-saboroso',
+    code: 'L11',
+    title: 'Bacalhau cremoso com queijo, alho poró e vegetais agridoce',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa12',
+    category: 'pao-saboroso',
+    code: 'L12',
+    title: 'Gorgonzola com queijo mussarela, tomate seco, nozes, geleia de damasco',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'psa13',
+    category: 'pao-saboroso',
+    code: 'L13',
+    title: 'Camarão cremoso queijo, alho poró e vegetais agridoce',
+    description: 'Tamanho: 30 cm | Serve aprox. 16 fatias. (Contém 3 camadas de recheio. Decorados conforme sabor)',
+    priceNormal: 120.00,
+    priceFesta: 0,
+    imageUrl: '/pao_saboroso_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Mini Torta Alta ---
+  {
+    id: 'tal01',
+    category: 'torta-alta',
+    code: 'C01',
+    title: 'Lombinho',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 75.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal02',
+    category: 'torta-alta',
+    code: 'C02',
+    title: 'Tortinha de limão',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 75.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal03',
+    category: 'torta-alta',
+    code: 'C03',
+    title: 'Frango cremoso',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 70.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal04',
+    category: 'torta-alta',
+    code: 'C04',
+    title: 'Frango cremoso c/ queijo',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 70.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal05',
+    category: 'torta-alta',
+    code: 'C05',
+    title: 'Peito de peru defumado com queijo',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 70.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal06',
+    category: 'torta-alta',
+    code: 'C06',
+    title: 'Frango cremoso c/ bacon',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 70.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal07',
+    category: 'torta-alta',
+    code: 'C07',
+    title: 'Queijo e presunto',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 70.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal08',
+    category: 'torta-alta',
+    code: 'C08',
+    title: 'Romeu e Julieta',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 70.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal09',
+    category: 'torta-alta',
+    code: 'C09',
+    title: 'Leite moça com geleia de damasco',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Simples)',
+    priceNormal: 75.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal10',
+    category: 'torta-alta',
+    code: 'D01',
+    title: 'Costela Especial com Barbecue',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal11',
+    category: 'torta-alta',
+    code: 'D02',
+    title: 'Carne do sol c/ queijo coalho',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal12',
+    category: 'torta-alta',
+    code: 'D03',
+    title: 'Tropical especial',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal13',
+    category: 'torta-alta',
+    code: 'D04',
+    title: 'Carne seca com queijo coalho',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal14',
+    category: 'torta-alta',
+    code: 'D05',
+    title: 'Queijo cremoso com cebola caramelizada',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal15',
+    category: 'torta-alta',
+    code: 'D06',
+    title: 'Queijo gouda com geleia de frutas vermelhas',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal16',
+    category: 'torta-alta',
+    code: 'D07',
+    title: 'Queijo reino com geleia de damasco',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal17',
+    category: 'torta-alta',
+    code: 'D08',
+    title: 'Quatro queijos (gorgonzola opcional)',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal18',
+    category: 'torta-alta',
+    code: 'D09',
+    title: 'Bacalhau cremoso com azeitonas',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal19',
+    category: 'torta-alta',
+    code: 'D10',
+    title: 'Salmão amanteigado com queijo e geleia de maracujá artesanal',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal20',
+    category: 'torta-alta',
+    code: 'D11',
+    title: 'Carne especial com alho caramelizado',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal21',
+    category: 'torta-alta',
+    code: 'D12',
+    title: 'Alho poró com queijo branco',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal22',
+    category: 'torta-alta',
+    code: 'D13',
+    title: 'Camarão com queijo',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal23',
+    category: 'torta-alta',
+    code: 'D14',
+    title: 'Supremo poró da Lelis (dois queijos, alho poró e calabresa)',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal24',
+    category: 'torta-alta',
+    code: 'D16',
+    title: 'Gorgonzola com cream cheese e nozes',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal25',
+    category: 'torta-alta',
+    code: 'D17',
+    title: 'Sertanejo (carne de fumeiro com queijo coalho)',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tal26',
+    category: 'torta-alta',
+    code: 'D18',
+    title: 'Peito de peru com queijo e castanha caramelizada',
+    description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
+    priceNormal: 85.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Bolos Caseiros ---
+  {
+    id: 'u01',
+    category: 'bolo-caseiro',
+    code: 'A01',
+    title: 'Bolo de aipim',
+    description: 'Bolo caseiro tradicional de aipim.',
+    priceNormal: 55.00,
+    priceFesta: 0,
+    imageUrl: '/bolo_caseiro_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'u02',
+    category: 'bolo-caseiro',
+    code: 'A02',
+    title: 'Bolo de carimã',
+    description: 'Bolo caseiro tradicional de carimã.',
+    priceNormal: 60.00,
+    priceFesta: 0,
+    imageUrl: '/bolo_caseiro_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Torta Salgada ---
+  {
+    id: 'tsa01',
+    category: 'torta-salgada',
+    code: 'A01',
+    title: 'Lombinho com queijo',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 210.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa02',
+    category: 'torta-salgada',
+    code: 'A02',
+    title: 'Costela com barbecue e queijo',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 210.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa03',
+    category: 'torta-salgada',
+    code: 'A03',
+    title: 'Bacalhau cremoso com queijo e azeitonas e ervas',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 280.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa04',
+    category: 'torta-salgada',
+    code: 'A04',
+    title: 'Carne seca com queijo coalho',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 280.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa05',
+    category: 'torta-salgada',
+    code: 'A05',
+    title: 'Carne do sol com queijo coalho',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 260.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa06',
+    category: 'torta-salgada',
+    code: 'A06',
+    title: 'Sertanejo especial com fumeiro',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 250.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa07',
+    category: 'torta-salgada',
+    code: 'A07',
+    title: 'Camarão cremoso com queijo',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 280.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa08',
+    category: 'torta-salgada',
+    code: 'A08',
+    title: 'Palmito com bacon e dois queijos (mussarela e provolone)',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 200.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa09',
+    category: 'torta-salgada',
+    code: 'A09',
+    title: 'Frango cremoso com bacon',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 210.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa10',
+    category: 'torta-salgada',
+    code: 'A10',
+    title: 'Frango cremoso com queijo',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 195.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa11',
+    category: 'torta-salgada',
+    code: 'A11',
+    title: 'Peito de peru defumado com queijo',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 210.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa12',
+    category: 'torta-salgada',
+    code: 'A12',
+    title: 'Peito de peru defumado com castanha caramelizada',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 240.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa13',
+    category: 'torta-salgada',
+    code: 'A13',
+    title: 'Portuguesa',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 190.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa14',
+    category: 'torta-salgada',
+    code: 'A14',
+    title: 'Cinco queijos',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 210.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa15',
+    category: 'torta-salgada',
+    code: 'A15',
+    title: 'Queijo reino com geleia de damasco e damascos',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 250.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa16',
+    category: 'torta-salgada',
+    code: 'A16',
+    title: 'Linguiça artesanal defumada com pesto de tomate seco e parmesão',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 250.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tsa17',
+    category: 'torta-salgada',
+    code: 'A17',
+    title: 'Frango cremoso com queijo e geleia de pimenta gourmet',
+    description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/torta_salgada_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Cheesecake Salgado ---
+  {
+    id: 'ch01',
+    category: 'cheesecake',
+    code: 'Z01',
+    title: 'Tomatinho assado com gorgonzola, parmesão e manjericão',
+    description: 'Base: camada de nossa massa de empada. Meio: creme de cream cheese com parmesão.',
+    priceNormal: 180.00,
+    priceFesta: 0,
+    imageUrl: '/cheesecake_salgado_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'ch02',
+    category: 'cheesecake',
+    code: 'Z02',
+    title: 'Camarão amanteigado com provolone ralado',
+    description: 'Base: camada de nossa massa de empada. Meio: creme de cream cheese com parmesão.',
+    priceNormal: 210.00,
+    priceFesta: 0,
+    imageUrl: '/cheesecake_salgado_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'ch03',
+    category: 'cheesecake',
+    code: 'Z03',
+    title: 'Peperoni agridoce com...',
+    description: 'Base: camada de nossa massa de empada. Meio: creme de cream cheese com parmesão.',
+    priceNormal: 180.00,
+    priceFesta: 0,
+    imageUrl: '/cheesecake_salgado_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Torta Vienense ---
+  {
+    id: 'tvi01',
+    category: 'torta-vienense',
+    code: 'F01',
+    title: 'Tradicional (recheio de goiabada) com amêndoas em laminas',
+    description: 'Tamanho: 22cm | 17 discos (em media 18 fatias)',
+    priceNormal: 198.00,
+    priceFesta: 0,
+    imageUrl: '/torta_vienense_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tvi02',
+    category: 'torta-vienense',
+    code: 'F02',
+    title: 'Brigadeiro meio amargo (com granulado meio amargo)',
+    description: 'Tamanho: 22cm | 17 discos (em media 18 fatias)',
+    priceNormal: 240.00,
+    priceFesta: 0,
+    imageUrl: '/torta_vienense_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Taças Gourmet ---
+  {
+    id: 'tgs01',
+    category: 'taca-gourmet',
+    code: 'P01',
+    title: 'Camarão com queijo, castanha de caju amanteigado, e dois queijos',
+    description: 'Entre as camadas do recheio são intercaladas bordas de cream cheese, minis torradas assadas e azeite doce.',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/taca_gourmet_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tgs02',
+    category: 'taca-gourmet',
+    code: 'P02',
+    title: 'Mix agridoce com frango, presunto, peperone, salame, queijo, geleia de pimenta, sementes e azeite',
+    description: 'Entre as camadas do recheio são intercaladas bordas de cream cheese, minis torradas assadas e azeite doce.',
+    priceNormal: 190.00,
+    priceFesta: 0,
+    imageUrl: '/taca_gourmet_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tgs03',
+    category: 'taca-gourmet',
+    code: 'P03',
+    title: 'Mix presunto de parma com manga e coco, cebola roxa, tomatinho assado e parmesão',
+    description: 'Entre as camadas do recheio são intercaladas bordas de cream cheese, minis torradas assadas e azeite doce.',
+    priceNormal: 250.00,
+    priceFesta: 0,
+    imageUrl: '/taca_gourmet_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tgs04',
+    category: 'taca-gourmet',
+    code: 'P04',
+    title: 'Queijo branco com provolone, tomate seco, sementes caramelizadas',
+    description: 'Entre as camadas do recheio são intercaladas bordas de cream cheese, minis torradas assadas e azeite doce.',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/taca_gourmet_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tgs05',
+    category: 'taca-gourmet',
+    code: 'P05',
+    title: 'Atum em pedaços com tomate seco amanteigado (agridoce), cogumelo, azeitonas pretas e verdes, mistura de dois queijos (provolone e mussarela)',
+    description: 'Entre as camadas do recheio são intercaladas bordas de cream cheese, minis torradas assadas e azeite doce.',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/taca_gourmet_oficial.jpeg',
+    isAvailableNow: false
+  },
+
+  // --- Mini Tortinhas ---
+  {
+    id: 'tb01',
+    category: 'tortinha-baby',
+    code: 'TB01',
+    title: 'Mini Tortinha Baby de Limão',
+    description: 'Mini tortinha doce de massa crocante, creme de limão e merengue tostado.',
+    priceNormal: 4.50,
+    priceFesta: 2.50,
+    imageUrl: 'https://images.unsplash.com/photo-1511081692775-05d0f180a065?w=500&q=80&fit=crop',
+    isAvailableNow: false
+  },
+
+  // --- Dadinho de Tapioca ---
+  {
+    id: 'dad01',
+    category: 'dadinho',
+    code: 'DT01',
+    title: 'Dadinho de Tapioca com Geleia de Pimenta',
+    description: 'Porção com 12 dadinhos crocantes de tapioca com queijo coalho servidos com geleia doce de pimenta.',
+    priceNormal: 20.00,
+    priceFesta: 0,
+    imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80&fit=crop',
+    isAvailableNow: true
+  },
+
+  // --- Terrines ---
+  {
+    id: 'ter01',
+    category: 'terrine',
+    code: 'TE01',
+    title: 'Terrine de Gorgonzola, Figo e Nozes',
+    description: 'Terrine francesa sofisticada com queijo gorgonzola cremoso, nozes picadas e compota de figo.',
+    priceNormal: 42.00,
+    priceFesta: 0,
+    imageUrl: 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=500&q=80&fit=crop',
+    isAvailableNow: false
+  },
+  {
+    id: 'baby-x01',
+    category: 'torta-baby',
+    code: 'X01',
+    title: 'Brigadeiro branco com geleia artesanal de limão',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades. (Caixa personalizada: consultar valor adicional).',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x02',
+    category: 'torta-baby',
+    code: 'X02',
+    title: 'Brigadeiro de doce de leite',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x04',
+    category: 'torta-baby',
+    code: 'X04',
+    title: 'Camarão com provolone',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x05',
+    category: 'torta-baby',
+    code: 'X05',
+    title: 'Queijo reino com geleia de damasco',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x06',
+    category: 'torta-baby',
+    code: 'X06',
+    title: 'Gorgonzola com sementes agridoce',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x07',
+    category: 'torta-baby',
+    code: 'X07',
+    title: 'Salmao com geleia de maracujá',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x08',
+    category: 'torta-baby',
+    code: 'X08',
+    title: 'Sertanejo especial (carne fumeiro e banana caramelizada)',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x09',
+    category: 'torta-baby',
+    code: 'X09',
+    title: 'Alho poró com dois queijos',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x10',
+    category: 'torta-baby',
+    code: 'X10',
+    title: 'Frango com geleia de pimenta ou bacon',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x11',
+    category: 'torta-baby',
+    code: 'X11',
+    title: 'Peito de peru com castanha caramelizada',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x12',
+    category: 'torta-baby',
+    code: 'X12',
+    title: 'Bacalhau com alho poró e queijo',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x13',
+    category: 'torta-baby',
+    code: 'X13',
+    title: 'Ricota com queijo provolone e tomate seco',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x14',
+    category: 'torta-baby',
+    code: 'X14',
+    title: 'Carne do sol com queijo coalho',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x15',
+    category: 'torta-baby',
+    code: 'X15',
+    title: 'Costela com barbecue',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'baby-x16',
+    category: 'torta-baby',
+    code: 'X16',
+    title: 'Carne seca com queijo coalho e cebola caramelizada',
+    description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
+    priceNormal: 19.00,
+    priceFesta: 0,
+    imageUrl: '/mini_torta_baby.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'dadinho-f01',
+    category: 'dadinho',
+    code: 'F01',
+    title: 'Geleia de pimenta gourmet e gergelim',
+    description: 'Tamanho: 40g | 3cm altura. Mínimo: 30 unidades (permitido 2 sabores, 15 de cada).',
+    priceNormal: 3.20,
+    priceFesta: 0,
+    imageUrl: '/dadinho_de_tapioca.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'dadinho-f02',
+    category: 'dadinho',
+    code: 'F02',
+    title: 'Pernil com acebolado',
+    description: 'Tamanho: 40g | 3cm altura. Mínimo: 30 unidades (permitido 2 sabores, 15 de cada).',
+    priceNormal: 3.50,
+    priceFesta: 0,
+    imageUrl: '/dadinho_de_tapioca.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'dadinho-f03',
+    category: 'dadinho',
+    code: 'F03',
+    title: 'Presunto de parma com abacaxi caramelizada (agridoce)',
+    description: 'Tamanho: 40g | 3cm altura. Mínimo: 30 unidades (permitido 2 sabores, 15 de cada).',
+    priceNormal: 3.80,
+    priceFesta: 0,
+    imageUrl: '/dadinho_de_tapioca.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'dadinho-f04',
+    category: 'dadinho',
+    code: 'F04',
+    title: 'Camarão amanteigado com requeijão',
+    description: 'Tamanho: 40g | 3cm altura. Mínimo: 30 unidades (permitido 2 sabores, 15 de cada).',
+    priceNormal: 3.80,
+    priceFesta: 0,
+    imageUrl: '/dadinho_de_tapioca.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'dadinho-f05',
+    category: 'dadinho',
+    code: 'F05',
+    title: 'Tomate seco com parmesão e nozes',
+    description: 'Tamanho: 40g | 3cm altura. Mínimo: 30 unidades (permitido 2 sabores, 15 de cada).',
+    priceNormal: 3.40,
+    priceFesta: 0,
+    imageUrl: '/dadinho_de_tapioca.jpeg',
+    isAvailableNow: true
+  }
+];
