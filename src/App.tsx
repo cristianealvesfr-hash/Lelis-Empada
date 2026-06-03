@@ -70,8 +70,9 @@ function App() {
     let text = `Olá Lelis Empada Gourmet! Gostaria de fazer uma encomenda:\n\n`;
     
     cart.forEach(item => {
+      const isFreeQuantityFesta = ['pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(item.baseProduct.category);
       const isFesta = item.size === 'festa' || item.size === 'festa-integral';
-      let sizeStr = item.size === 'festa-integral' ? 'Pão Integral (Caixa c/ 30)' : item.size === 'festa' ? 'Festa' : 'Normal';
+      let sizeStr = item.size === 'festa-integral' ? 'Pão Integral' : item.size === 'festa' ? 'Festa' : 'Normal';
       if (item.size === 'pequena') sizeStr = 'Pequeno';
       if (item.size === 'media') sizeStr = 'Médio (23cm)';
       if (item.size === 'grande') sizeStr = 'Grande (30cm)';
@@ -84,10 +85,15 @@ function App() {
       let productStr = `${categoryLabel} - ${item.baseProduct.title}`;
       
       if (item.secondHalfProduct) {
-        productStr = `Caixa Meio a Meio [15x ${categoryLabel} - ${item.baseProduct.title}, 15x ${CATEGORIES.find(c => c.id === item.secondHalfProduct!.category)?.label || ''} - ${item.secondHalfProduct.title}]`;
+        if (isFreeQuantityFesta) {
+          productStr = `Múltiplos Sabores [${categoryLabel} - ${item.baseProduct.title} / ${CATEGORIES.find(c => c.id === item.secondHalfProduct!.category)?.label || ''} - ${item.secondHalfProduct.title}]`;
+        } else {
+          productStr = `Caixa Meio a Meio [15x ${categoryLabel} - ${item.baseProduct.title}, 15x ${CATEGORIES.find(c => c.id === item.secondHalfProduct!.category)?.label || ''} - ${item.secondHalfProduct.title}]`;
+        }
       }
       
-      text += `${isFesta ? item.quantity / 30 : item.quantity}x ${productStr} - Tamanho ${sizeStr} - R$ ${item.totalPrice.toFixed(2).replace('.', ',')}\n`;
+      const displayQuantity = (isFesta && !isFreeQuantityFesta) ? item.quantity / 30 : item.quantity;
+      text += `${displayQuantity}x ${productStr} - Tamanho ${sizeStr} - R$ ${item.totalPrice.toFixed(2).replace('.', ',')}\n`;
       
       if (item.barcaSelections) {
         text += `   ↳ Sabor 1: [${item.barcaSelections.flavor1.code}] ${item.barcaSelections.flavor1.title}\n`;

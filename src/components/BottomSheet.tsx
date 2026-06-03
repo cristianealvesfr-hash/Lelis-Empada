@@ -39,19 +39,25 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
   const [barcaFlavor2, setBarcaFlavor2] = useState<string>(''); // Especial
   const [barcaFlavor3, setBarcaFlavor3] = useState<string>(''); // Especial
 
+  const isFreeQuantityFesta = product ? ['pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(product.category) : false;
+
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect */
     if (isOpen && product) {
       if (product.category === 'quiche') {
         setSize('pequena');
+        setQuantity(1);
       } else if (product.category === 'torta-maca') {
         setSize('torta20cm');
+        setQuantity(1);
       } else if (product.category === 'sufle') {
         setSize('sufle20cm');
+        setQuantity(1);
       } else {
-        setSize(product.priceNormal === 0 ? 'festa' : 'normal');
+        const initialSize = product.priceNormal === 0 ? 'festa' : 'normal';
+        setSize(initialSize);
+        setQuantity(initialSize === 'festa' && ['pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(product.category) ? 30 : 1);
       }
-      setQuantity(1);
       setObservation('');
       setIsHalfHalf(false);
       setSecondHalfId('');
@@ -97,14 +103,24 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
     if (size === 'normal') {
       return product.priceNormal * quantity;
     } else {
-      // Tamanho festa (caixa com 30, ou múltiplos de 30)
-      const unitsPerBox = 30;
-      const boxes = quantity; // quantity here means number of boxes of 30
-      
       let festaPrice = product.priceFesta;
       if (size === 'festa-integral' && product.priceFestaIntegral) {
         festaPrice = product.priceFestaIntegral;
       }
+      
+      if (isFreeQuantityFesta) {
+        if (isHalfHalf && secondHalfId) {
+          const secondProduct = PRODUCTS.find(p => p.id === secondHalfId);
+          if (secondProduct) {
+            return (quantity / 2) * festaPrice + (quantity / 2) * secondProduct.priceFesta;
+          }
+        }
+        return festaPrice * quantity;
+      }
+
+      // Tamanho festa (caixa com 30, ou múltiplos de 30)
+      const unitsPerBox = 30;
+      const boxes = quantity; // quantity here means number of boxes of 30
       
       if (isHalfHalf && secondHalfId) {
         const secondProduct = PRODUCTS.find(p => p.id === secondHalfId);
@@ -138,7 +154,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
       id: crypto.randomUUID(),
       baseProduct: product,
       size: (size as 'normal' | 'festa' | 'pequena' | 'media' | 'grande' | 'torta20cm' | 'minibaby' | 'sufle20cm' | 'sufle30cm'),
-      quantity: size === 'festa' ? quantity * 30 : quantity,
+      quantity: (size === 'festa' || size === 'festa-integral') && !isFreeQuantityFesta ? quantity * 30 : quantity,
       secondHalfProduct: isHalfHalf && secondHalfId ? PRODUCTS.find(p => p.id === secondHalfId) : undefined,
       barcaSelections,
       observation,
@@ -396,7 +412,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                 {product.priceNormal > 0 && (
                   <label className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${size === 'normal' ? 'border-brand-purple bg-brand-lilac/20' : 'border-gray-200 bg-white'}`}>
                     <div className="flex items-center gap-3">
-                      <input type="radio" name="size" checked={size === 'normal'} onChange={() => setSize('normal')} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
+                      <input type="radio" name="size" checked={size === 'normal'} onChange={() => { setSize('normal'); setQuantity(1); }} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
                       <span className="font-medium text-gray-800">Tamanho Normal</span>
                     </div>
                     <span className="font-bold text-brand-purple">R$ {product.priceNormal.toFixed(2).replace('.', ',')} / un</span>
@@ -406,9 +422,9 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                 {product.priceFesta > 0 && (
                   <label className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${size === 'festa' ? 'border-brand-purple bg-brand-lilac/20' : 'border-gray-200 bg-white'}`}>
                     <div className="flex items-center gap-3">
-                      <input type="radio" name="size" checked={size === 'festa'} onChange={() => setSize('festa')} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
+                      <input type="radio" name="size" checked={size === 'festa'} onChange={() => { setSize('festa'); setQuantity(isFreeQuantityFesta ? Math.max(30, quantity) : 1); }} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
                       <div>
-                        <span className="font-medium text-gray-800 block">Tamanho Festa (Caixa c/ 30)</span>
+                        <span className="font-medium text-gray-800 block">Tamanho Festa {isFreeQuantityFesta ? '(A partir de 30 un)' : '(Caixa c/ 30)'}</span>
                         <span className="text-xs text-brand-purpleLight">A partir de R$ {(product.priceFesta * 30).toFixed(2).replace('.', ',')}</span>
                       </div>
                     </div>
@@ -418,7 +434,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                 {product.priceFestaIntegral && (
                   <label className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${size === 'festa-integral' ? 'border-brand-purple bg-brand-lilac/20' : 'border-gray-200 bg-white'}`}>
                     <div className="flex items-center gap-3">
-                      <input type="radio" name="size" checked={size === 'festa-integral'} onChange={() => setSize('festa-integral')} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
+                      <input type="radio" name="size" checked={size === 'festa-integral'} onChange={() => { setSize('festa-integral'); setQuantity(1); }} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
                       <div>
                         <span className="font-medium text-gray-800 block">Pão Integral (Caixa c/ 30)</span>
                         <span className="text-xs text-brand-purpleLight">A partir de R$ {(product.priceFestaIntegral * 30).toFixed(2).replace('.', ',')}</span>
@@ -435,13 +451,13 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
             <div className="mt-4 bg-orange-50 border border-orange-100 p-4 rounded-xl">
               <div className="flex items-start gap-2 text-orange-800 text-sm mb-3">
                 <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
-                <p><strong>Regra da loja:</strong> Mínimo 30 unidades | 15 unidades de cada sabor.</p>
+                <p><strong>Regra da loja:</strong> Mínimo 30 unidades | 15 unidades de cada sabor. {isFreeQuantityFesta && <span className="block mt-1 font-semibold">Obs: A partir de 100 unidades é possível escolher até 4 sabores (descreva no campo de observações abaixo).</span>}</p>
               </div>
 
               <div className="bg-white p-3 rounded-lg shadow-sm border border-orange-100">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={isHalfHalf} onChange={(e) => setIsHalfHalf(e.target.checked)} className="rounded text-brand-purple focus:ring-brand-purple h-4 w-4" />
-                  <span className="font-medium text-sm text-gray-800">Quero Meio a Meio (15 de cada)</span>
+                  <span className="font-medium text-sm text-gray-800">{isFreeQuantityFesta ? 'Quero dividir em mais sabores' : 'Quero Meio a Meio (15 de cada)'}</span>
                 </label>
 
                 {isHalfHalf && (
@@ -482,8 +498,8 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
             <div className="flex items-center bg-gray-100 rounded-full p-1">
               <button 
                 className="w-8 h-8 flex items-center justify-center text-brand-purple rounded-full hover:bg-white transition-colors disabled:opacity-50"
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                disabled={quantity <= 1}
+                onClick={() => setQuantity(Math.max(size === 'festa' && isFreeQuantityFesta ? 30 : 1, quantity - 1))}
+                disabled={size === 'festa' && isFreeQuantityFesta ? quantity <= 30 : quantity <= 1}
               >
                 <Minus size={16} />
               </button>
