@@ -102,7 +102,13 @@ function App() {
 
     text += `\n*Subtotal: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
     text += `Total: R$ ${total.toFixed(2).replace('.', ',')}\n`;
-    text += `Pagamento: ${paymentMethod}`;
+    text += `Pagamento: ${paymentMethod}\n\n`;
+    text += `*Informações adicionais*\n`;
+    text += `Sua RESERVA só será garantida mediante pagamento 50% ou TOTAL\n`;
+    text += `- PIX, CNPJ: 61518568/000193 LELIS EMPADA GOURMET - (Banco INTER).\n`;
+    text += `- Cartão de crédito:\n`;
+    text += `Link de pagamento on-line ( com acréscimo - parcela em até 12x.)\n\n`;
+    text += `Obrigada pela preferência e confiança!`;
 
     const encodedText = encodeURIComponent(text);
     window.location.href = `https://wa.me/${phone}?text=${encodedText}`;
