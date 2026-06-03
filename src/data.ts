@@ -2335,18 +2335,6 @@ export const PRODUCTS: Product[] = [
     isAvailableNow: false
   },
 
-  // --- Dadinho de Tapioca ---
-  {
-    id: 'dad01',
-    category: 'dadinho',
-    code: 'DT01',
-    title: 'Dadinho de Tapioca com Geleia de Pimenta',
-    description: 'Porção com 12 dadinhos crocantes de tapioca com queijo coalho servidos com geleia doce de pimenta.',
-    priceNormal: 20.00,
-    priceFesta: 0,
-    imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80&fit=crop',
-    isAvailableNow: true
-  },
 
   // --- Terrines ---
   {
