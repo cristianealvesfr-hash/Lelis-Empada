@@ -494,8 +494,10 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
 
         {/* Footer Actions */}
         <div className="absolute bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 pb-safe flex flex-col gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center bg-gray-100 rounded-full p-1">
+          <div className="flex items-end justify-between">
+            <div>
+              <span className="text-[10px] text-gray-500 block uppercase font-bold tracking-wider mb-1 ml-2">Quantidade</span>
+              <div className="flex items-center bg-gray-100 rounded-full p-1">
               <button 
                 className="w-8 h-8 flex items-center justify-center text-brand-purple rounded-full hover:bg-white transition-colors disabled:opacity-50"
                 onClick={() => setQuantity(Math.max(size === 'festa' && isFreeQuantityFesta ? 30 : 1, quantity - 1))}
@@ -510,6 +512,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
               >
                 <Plus size={16} />
               </button>
+              </div>
             </div>
             <div className="text-right">
               <span className="text-[10px] text-gray-500 block uppercase font-bold tracking-wider">Total</span>
