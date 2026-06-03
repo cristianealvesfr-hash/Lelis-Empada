@@ -1256,6 +1256,32 @@ export const PRODUCTS: Product[] = [
     imageUrl: '/quiche.jpg',
     isAvailableNow: true
   },
+  {
+    id: 'qui31',
+    category: 'quiche',
+    code: 'A38',
+    title: 'Calabresa acebolado',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 60.00,
+    priceMedia: 85.00,
+    priceGrande: 135.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'qui32',
+    category: 'quiche',
+    code: 'A39',
+    title: 'Bacalhau',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 70.00,
+    priceMedia: 97.00,
+    priceGrande: 185.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
 
   // --- Torta de Maçã ---
   {
