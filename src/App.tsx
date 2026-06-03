@@ -70,7 +70,7 @@ function App() {
     let text = `Olá Lelis Empada Gourmet! Gostaria de fazer uma encomenda:\n\n`;
     
     cart.forEach(item => {
-      const isFreeQuantityFesta = ['pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(item.baseProduct.category);
+      const isFreeQuantityFesta = ['simples', 'especiais', 'pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(item.baseProduct.category);
       const isFesta = item.size === 'festa' || item.size === 'festa-integral';
       let sizeStr = item.size === 'festa-integral' ? 'Pão Integral' : item.size === 'festa' ? 'Festa' : 'Normal';
       if (item.size === 'pequena') sizeStr = 'Pequeno';
