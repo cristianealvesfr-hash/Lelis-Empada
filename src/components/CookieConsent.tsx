@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 interface CookieConsentProps {
   onOpenPrivacy: () => void;
 }
 
 export const CookieConsent: React.FC<CookieConsentProps> = ({ onOpenPrivacy }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, []);
+  const [isVisible, setIsVisible] = useState(() => !localStorage.getItem('cookie-consent'));
 
   const handleAccept = () => {
     localStorage.setItem('cookie-consent', 'true');

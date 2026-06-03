@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 
 const CardFlags: React.FC = () => {
   return (
@@ -18,6 +18,19 @@ interface FooterProps {
   onOpenTerms?: () => void;
 }
 
+const TeardropIcon = ({ onClick, ariaLabel, children }: { onClick: () => void, ariaLabel: string, children: React.ReactNode }) => (
+  <button 
+    onClick={onClick}
+    aria-label={ariaLabel}
+    className="group relative w-12 h-12 bg-[#6A3756] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 shadow-sm"
+    style={{ borderRadius: '0 50% 50% 50%' }}
+  >
+    <div className="w-[75%] h-[75%] rounded-full border-2 border-white flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#6A3756] transition-colors duration-300">
+      {children}
+    </div>
+  </button>
+);
+
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
   const handleInstagramClick = () => {
     window.open('https://www.instagram.com/lelisempadagourmet', '_blank');
@@ -30,19 +43,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
   const handleWhatsappClick = () => {
     window.open('https://wa.me/5571987265754', '_blank');
   };
-
-  const TeardropIcon = ({ onClick, ariaLabel, children }: { onClick: () => void, ariaLabel: string, children: React.ReactNode }) => (
-    <button 
-      onClick={onClick}
-      aria-label={ariaLabel}
-      className="group relative w-12 h-12 bg-[#6A3756] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 shadow-sm"
-      style={{ borderRadius: '0 50% 50% 50%' }}
-    >
-      <div className="w-[75%] h-[75%] rounded-full border-2 border-white flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#6A3756] transition-colors duration-300">
-        {children}
-      </div>
-    </button>
-  );
 
   return (
     <footer className="bg-brand-dark text-white pt-12 pb-24 px-6 border-t border-brand-purple/20">

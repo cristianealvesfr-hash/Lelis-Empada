@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { CategoryNav } from './components/CategoryNav';
 import { HeroSlider } from './components/HeroSlider';
@@ -20,7 +20,7 @@ import { Condicoes } from './components/Condicoes';
 import { MobileDrawer } from './components/MobileDrawer';
 import { PRODUCTS, CATEGORIES } from './data';
 import type { Product } from './data';
-import { Home, Utensils, Calculator, ShoppingBag, PhoneCall, Menu } from 'lucide-react';
+import { Home, Calculator, ShoppingBag, PhoneCall, Menu } from 'lucide-react';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id);
@@ -80,10 +80,11 @@ function App() {
       if (item.size === 'sufle20cm') sizeStr = 'Suflê (20cm)';
       if (item.size === 'sufle30cm') sizeStr = 'Suflê (30cm)';
       
-      let productStr = item.baseProduct.title;
+      const categoryLabel = CATEGORIES.find(c => c.id === item.baseProduct.category)?.label || '';
+      let productStr = `${categoryLabel} - ${item.baseProduct.title}`;
       
       if (item.secondHalfProduct) {
-        productStr = `Caixa Meio a Meio [15x ${item.baseProduct.title}, 15x ${item.secondHalfProduct.title}]`;
+        productStr = `Caixa Meio a Meio [15x ${categoryLabel} - ${item.baseProduct.title}, 15x ${CATEGORIES.find(c => c.id === item.secondHalfProduct!.category)?.label || ''} - ${item.secondHalfProduct.title}]`;
       }
       
       text += `${isFesta ? item.quantity / 30 : item.quantity}x ${productStr} - Tamanho ${sizeStr} - R$ ${item.totalPrice.toFixed(2).replace('.', ',')}\n`;

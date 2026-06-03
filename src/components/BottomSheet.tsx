@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Minus, Plus, AlertCircle, ShoppingBag, MessageCircle } from 'lucide-react';
+import { X, Minus, Plus, AlertCircle, ShoppingBag } from 'lucide-react';
 import { PRODUCTS, BARCA_SIMPLES, BARCA_ESPECIAIS } from '../data';
 import type { Product } from '../data';
 
@@ -40,6 +40,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
   const [barcaFlavor3, setBarcaFlavor3] = useState<string>(''); // Especial
 
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect */
     if (isOpen && product) {
       if (product.category === 'quiche') {
         setSize('pequena');
@@ -121,9 +122,9 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
     let barcaSelections = undefined;
     if (product.category === 'barca') {
       const f1List = barcaType === 'padrao' ? BARCA_SIMPLES : BARCA_ESPECIAIS;
-      const f1 = f1List.find((f: any) => f.code === barcaFlavor1) || { code: barcaFlavor1, title: '' };
-      const f2 = BARCA_ESPECIAIS.find((f: any) => f.code === barcaFlavor2) || { code: barcaFlavor2, title: '' };
-      const f3 = BARCA_ESPECIAIS.find((f: any) => f.code === barcaFlavor3) || { code: barcaFlavor3, title: '' };
+      const f1 = f1List.find((f: {code: string, title: string}) => f.code === barcaFlavor1) || { code: barcaFlavor1, title: '' };
+      const f2 = BARCA_ESPECIAIS.find((f: {code: string, title: string}) => f.code === barcaFlavor2) || { code: barcaFlavor2, title: '' };
+      const f3 = BARCA_ESPECIAIS.find((f: {code: string, title: string}) => f.code === barcaFlavor3) || { code: barcaFlavor3, title: '' };
       
       barcaSelections = {
         type: barcaType,
@@ -134,9 +135,9 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
     }
 
     onAddToCart({
-      id: Math.random().toString(36).substr(2, 9),
+      id: crypto.randomUUID(),
       baseProduct: product,
-      size: (size as any),
+      size: (size as 'normal' | 'festa' | 'pequena' | 'media' | 'grande' | 'torta20cm' | 'minibaby' | 'sufle20cm' | 'sufle30cm'),
       quantity: size === 'festa' ? quantity * 30 : quantity,
       secondHalfProduct: isHalfHalf && secondHalfId ? PRODUCTS.find(p => p.id === secondHalfId) : undefined,
       barcaSelections,
@@ -252,7 +253,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                     onChange={(e) => setBarcaFlavor1(e.target.value)}
                   >
                     <option value="" disabled>Selecione...</option>
-                    {(barcaType === 'padrao' ? BARCA_SIMPLES : BARCA_ESPECIAIS).map((p: any) => (
+                    {(barcaType === 'padrao' ? BARCA_SIMPLES : BARCA_ESPECIAIS).map((p: {code: string, title: string}) => (
                       <option key={p.code} value={p.code}>{p.code} - {p.title}</option>
                     ))}
                   </select>
@@ -265,7 +266,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                     onChange={(e) => setBarcaFlavor2(e.target.value)}
                   >
                     <option value="" disabled>Selecione...</option>
-                    {BARCA_ESPECIAIS.map((p: any) => (
+                    {BARCA_ESPECIAIS.map((p: {code: string, title: string}) => (
                       <option key={p.code} value={p.code}>{p.code} - {p.title}</option>
                     ))}
                   </select>
@@ -278,7 +279,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                     onChange={(e) => setBarcaFlavor3(e.target.value)}
                   >
                     <option value="" disabled>Selecione...</option>
-                    {BARCA_ESPECIAIS.map((p: any) => (
+                    {BARCA_ESPECIAIS.map((p: {code: string, title: string}) => (
                       <option key={p.code} value={p.code}>{p.code} - {p.title}</option>
                     ))}
                   </select>
