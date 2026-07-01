@@ -794,6 +794,17 @@ export const PRODUCTS: Product[] = [
     imageUrl: '/pasteis_real.jpg',
     isAvailableNow: true
   },
+  {
+    id: 'pas12',
+    category: 'pasteis',
+    code: 'C12',
+    title: 'Camarão com requeijão',
+    description: 'Deliciosa combinação de camarão temperado e requeijão cremoso na massa crocante do pastel.',
+    priceNormal: 0,
+    priceFesta: 3.20,
+    imageUrl: '/pasteis_real.jpg',
+    isAvailableNow: true
+  },
 
   // --- Mini Hambúrguer ---
   {
