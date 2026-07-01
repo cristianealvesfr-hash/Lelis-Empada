@@ -2314,6 +2314,39 @@ export const PRODUCTS: Product[] = [
     imageUrl: '/torta_vienense_oficial.jpeg',
     isAvailableNow: false
   },
+  {
+    id: 'tvi03',
+    category: 'torta-vienense',
+    code: 'F03',
+    title: 'Romeu e julieta (com cream cheese e parmesão)',
+    description: 'Tamanho: 22cm | 17 discos (em media 18 fatias)',
+    priceNormal: 220.00,
+    priceFesta: 0,
+    imageUrl: '/torta_vienense_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tvi04',
+    category: 'torta-vienense',
+    code: 'F04',
+    title: 'Brigadeiro de limão siciliano com (nozes caramelizadas)',
+    description: 'Tamanho: 22cm | 17 discos (em media 18 fatias)',
+    priceNormal: 240.00,
+    priceFesta: 0,
+    imageUrl: '/torta_vienense_oficial.jpeg',
+    isAvailableNow: false
+  },
+  {
+    id: 'tvi05',
+    category: 'torta-vienense',
+    code: 'F05',
+    title: 'Gorgonzola com geleia de damasco e parmesão',
+    description: 'Tamanho: 22cm | 17 discos (em media 18 fatias)',
+    priceNormal: 240.00,
+    priceFesta: 0,
+    imageUrl: '/torta_vienense_oficial.jpeg',
+    isAvailableNow: false
+  },
 
   // --- Taças Gourmet ---
   {
