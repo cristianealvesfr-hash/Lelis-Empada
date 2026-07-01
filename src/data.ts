@@ -1138,6 +1138,19 @@ export const PRODUCTS: Product[] = [
     isAvailableNow: true
   },
   {
+    id: 'qui20b',
+    category: 'quiche',
+    code: 'A29',
+    title: 'Camarão com queijo e requeijão',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 70.00,
+    priceMedia: 97.00,
+    priceGrande: 185.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
+  {
     id: 'qui21',
     category: 'quiche',
     code: 'A30',
