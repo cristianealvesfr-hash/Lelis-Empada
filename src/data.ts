@@ -159,7 +159,7 @@ export const PRODUCTS: Product[] = [
     description: 'Frango desfiado temperado com queijo derretido de alta qualidade.',
     priceNormal: 4.50,
     priceFesta: 2.50,
-    imageUrl: '/empadas_real.jpg',
+    imageUrl: '/frango com queijo.jpeg',
     isAvailableNow: false
   },
   {
@@ -914,7 +914,7 @@ export const PRODUCTS: Product[] = [
     pricePequena: 60.00,
     priceMedia: 85.00,
     priceGrande: 125.00,
-    imageUrl: '/quiche.jpg',
+    imageUrl: '/frango com queijo.jpeg',
     isAvailableNow: true
   },
   {
@@ -2176,7 +2176,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
     priceNormal: 195.00,
     priceFesta: 0,
-    imageUrl: '/torta_salgada_oficial.jpeg',
+    imageUrl: '/frango com queijo.jpeg',
     isAvailableNow: false
   },
   {
