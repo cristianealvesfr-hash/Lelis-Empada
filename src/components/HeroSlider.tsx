@@ -22,7 +22,7 @@ export const HeroSlider: React.FC<{ onOpenCalculator?: () => void }> = ({ onOpen
       subtitle: "Massa leve que derrete na boca. Produzidas sob encomenda com ingredientes selecionados.",
       badge: "MÍNIMO 24h DE ANTECEDÊNCIA",
       badgeBg: "bg-amber-500",
-      image: "/sufle_oficial.jpeg",
+      image: "/torta_vienense_oficial.jpeg",
       actionText: "Ver Cardápio",
       icon: <Clock size={16} />
     },
