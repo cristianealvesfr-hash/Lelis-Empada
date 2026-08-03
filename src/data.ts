@@ -469,7 +469,7 @@ export const PRODUCTS: Product[] = [
     description: 'Carne de fumeiro desfiada combinada com o adocicado de banana da terra caramelizada.',
     priceNormal: 6.50,
     priceFesta: 3.10,
-    imageUrl: '/empadas_real.jpg',
+    imageUrl: '/sertanejo.jpeg',
     isAvailableNow: true
   },
   {
@@ -1265,7 +1265,7 @@ export const PRODUCTS: Product[] = [
     pricePequena: 70.00,
     priceMedia: 97.00,
     priceGrande: 185.00,
-    imageUrl: '/quiche.jpg',
+    imageUrl: '/sertanejo.jpeg',
     isAvailableNow: true
   },
   {
@@ -2029,7 +2029,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
     priceNormal: 85.00,
     priceFesta: 0,
-    imageUrl: '/mini_torta_alta_oficial.jpeg',
+    imageUrl: '/sertanejo.jpeg',
     isAvailableNow: false
   },
   {
@@ -2132,7 +2132,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
     priceNormal: 250.00,
     priceFesta: 0,
-    imageUrl: '/torta_salgada_oficial.jpeg',
+    imageUrl: '/sertanejo.jpeg',
     isAvailableNow: false
   },
   {
@@ -2561,7 +2561,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
     priceNormal: 19.00,
     priceFesta: 0,
-    imageUrl: '/mini_torta_baby.jpeg',
+    imageUrl: '/sertanejo.jpeg',
     isAvailableNow: true
   },
   {
