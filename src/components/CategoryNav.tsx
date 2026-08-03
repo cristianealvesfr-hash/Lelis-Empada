@@ -8,7 +8,7 @@ const VISUAL_CATEGORIES = [
   { id: 'pasteis', label: 'Mini Pastéis', img: '/pasteis_real.jpg' },
   { id: 'hamburguer', label: 'Mini Hambúrguer', img: '/hamburguer_real.jpg' },
   { id: 'barca', label: 'Barca Gourmet', img: '/barca.jpg' },
-  { id: 'quiche', label: 'Quiches', img: '/quiche.jpg' },
+  { id: 'quiche', label: 'Quiches', img: '/calabresa acebolado.jpeg' },
   { id: 'torta-maca', label: 'Torta de Maçã', img: '/torta_maca_oficial.jpeg' },
   { id: 'sanduiche', label: 'Mini Sanduíches', img: '/mini_sanduiche_oficial.jpeg' },
   { id: 'quibe', label: 'Quibe Recheado', img: '/quibe_oficial.jpeg' },

@@ -247,7 +247,7 @@ export const PRODUCTS: Product[] = [
     description: 'Acebolado (cebola, bacon, calabresa)',
     priceNormal: 4.50,
     priceFesta: 2.50,
-    imageUrl: '/empadas_real.jpg',
+    imageUrl: '/calabresa acebolado.jpeg',
     isAvailableNow: true
   },
   {
@@ -1291,7 +1291,7 @@ export const PRODUCTS: Product[] = [
     pricePequena: 60.00,
     priceMedia: 85.00,
     priceGrande: 135.00,
-    imageUrl: '/quiche.jpg',
+    imageUrl: '/calabresa acebolado.jpeg',
     isAvailableNow: true
   },
   {
