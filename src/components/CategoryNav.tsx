@@ -20,7 +20,7 @@ const VISUAL_CATEGORIES = [
   { id: 'torta-baby', label: 'Mini Torta Baby', img: '/mini_torta_baby.jpeg' },
   { id: 'dadinho', label: 'Dadinho de Tapioca', img: '/dadinho_de_tapioca.jpeg' },
   { id: 'bolo-caseiro', label: 'Bolos Caseiros', img: '/bolo_caseiro_oficial.jpeg' },
-  { id: 'torta-salgada', label: 'Tortas Salgadas', img: '/torta_salgada_oficial.jpeg' },
+  { id: 'torta-salgada', label: 'Tortas Salgadas', img: '/Portuguesa.jpeg' },
   { id: 'cheesecake', label: 'Cheesecakes', img: '/cheesecake_salgado_oficial.jpeg' },
   { id: 'torta-vienense', label: 'Torta Vienense', img: '/torta_vienense_oficial.jpeg' },
   { id: 'taca-gourmet', label: 'Taças Gourmet', img: '/taca_gourmet_oficial.jpeg' },
