@@ -80,6 +80,7 @@ export const CATEGORIES = [
   { id: 'tortinha-baby', label: 'Mini Tortinhas' },
   { id: 'dadinho', label: 'Dadinho de Tapioca' },
   { id: 'terrine', label: 'Terrine Doce & Salgado' },
+  { id: 'barquetes', label: 'Mini Sanduíches de Barquetes Recheados' },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -1526,7 +1527,7 @@ export const PRODUCTS: Product[] = [
     title: 'Camarão encapotado (ASSADO com requeijão)',
     description: 'Tamanhos: 25g (Camarão assado com massa amanteigado e requeijão). Mínimo 30 unidades.',
     priceNormal: 0,
-    priceFesta: 3.40,
+    priceFesta: 3.50,
     imageUrl: '/camarao_oficial.jpeg',
     isAvailableNow: false
   },
@@ -2704,6 +2705,63 @@ export const PRODUCTS: Product[] = [
     priceNormal: 3.40,
     priceFesta: 0,
     imageUrl: '/dadinho_de_tapioca.jpeg',
+    isAvailableNow: true
+  },
+
+  // --- Mini Sanduíches de Barquetes Recheados ---
+  {
+    id: 'barq-1',
+    category: 'barquetes',
+    code: 'BQT1',
+    title: 'Carne de panela com cebola caramelizada, alface roxo e cream cheese',
+    description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
+    priceNormal: 0,
+    priceFesta: 3.40,
+    imageUrl: '/barquetes.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'barq-2',
+    category: 'barquetes',
+    code: 'BQT2',
+    title: 'Presunto de Parma com pesto de tomate seco, cream cheese e alface roxo',
+    description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
+    priceNormal: 0,
+    priceFesta: 3.80,
+    imageUrl: '/barquetes.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'barq-3',
+    category: 'barquetes',
+    code: 'BQT3',
+    title: 'Pasta de azeitonas com nozes, mel, queijo fatiado, cream cheese e espinafre',
+    description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
+    priceNormal: 0,
+    priceFesta: 3.40,
+    imageUrl: '/barquetes.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'barq-5',
+    category: 'barquetes',
+    code: 'BQT5',
+    title: 'Frango desfiado com geleia de pimenta, provolone, cream cheese e alface roxo',
+    description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
+    priceNormal: 0,
+    priceFesta: 3.40,
+    imageUrl: '/barquetes.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'barq-6',
+    category: 'barquetes',
+    code: 'BQT6',
+    title: 'Fraldinha acebolada com queijo e cebola caramelizada',
+    description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
+    priceNormal: 0,
+    priceFesta: 3.80,
+    imageUrl: '/barquetes.jpg',
     isAvailableNow: true
   }
 ];

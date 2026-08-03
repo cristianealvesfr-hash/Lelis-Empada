@@ -39,13 +39,19 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
   const [barcaFlavor2, setBarcaFlavor2] = useState<string>(''); // Especial
   const [barcaFlavor3, setBarcaFlavor3] = useState<string>(''); // Especial
 
-  const isFreeQuantityFesta = product ? ['simples', 'especiais', 'pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(product.category) : false;
+  const isFreeQuantityFesta = product ? ['simples', 'especiais', 'pasteis', 'dadinho', 'quibe', 'sanduiche', 'barquetes'].includes(product.category) : false;
   const isEmpada = product ? ['simples', 'especiais'].includes(product.category) : false;
   
   const getNormalMinQty = () => {
     if (!product) return 1;
     if (product.id === 'e27' || product.id === 'e31') return 10;
     if (isEmpada) return 6;
+    return 1;
+  };
+
+  const getFestaMinQty = () => {
+    if (isEmpada) return 40;
+    if (isFreeQuantityFesta) return 30;
     return 1;
   };
 
@@ -65,7 +71,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
         const initialSize = product.priceNormal === 0 ? 'festa' : 'normal';
         setSize(initialSize);
         if (initialSize === 'festa') {
-          setQuantity(['simples', 'especiais', 'pasteis', 'dadinho', 'quibe', 'sanduiche'].includes(product.category) ? 30 : 1);
+          setQuantity(isFreeQuantityFesta ? getFestaMinQty() : 1);
         } else {
           setQuantity(product.id === 'e27' || product.id === 'e31' ? 10 : (['simples', 'especiais'].includes(product.category) ? 6 : 1));
         }
@@ -78,6 +84,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
       setBarcaFlavor2('');
       setBarcaFlavor3('');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, product]);
 
   // Prevent scroll when modal is open
@@ -436,10 +443,10 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
                 {product.priceFesta > 0 && (
                   <label className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${size === 'festa' ? 'border-brand-purple bg-brand-lilac/20' : 'border-gray-200 bg-white'}`}>
                     <div className="flex items-center gap-3">
-                      <input type="radio" name="size" checked={size === 'festa'} onChange={() => { setSize('festa'); setQuantity(isFreeQuantityFesta ? Math.max(30, quantity) : 1); }} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
+                      <input type="radio" name="size" checked={size === 'festa'} onChange={() => { setSize('festa'); setQuantity(isFreeQuantityFesta ? Math.max(getFestaMinQty(), quantity) : 1); }} className="text-brand-purple focus:ring-brand-purple h-4 w-4" />
                       <div>
-                        <span className="font-medium text-gray-800 block">Tamanho Festa {isFreeQuantityFesta ? '(A partir de 30 un)' : '(Caixa c/ 30)'}</span>
-                        <span className="text-xs text-brand-purpleLight">A partir de R$ {(product.priceFesta * 30).toFixed(2).replace('.', ',')}</span>
+                        <span className="font-medium text-gray-800 block">Tamanho Festa {isFreeQuantityFesta ? `(A partir de ${getFestaMinQty()} un)` : '(Caixa c/ 30)'}</span>
+                        <span className="text-xs text-brand-purpleLight">A partir de R$ {(product.priceFesta * (isFreeQuantityFesta ? getFestaMinQty() : 30)).toFixed(2).replace('.', ',')}</span>
                       </div>
                     </div>
                   </label>
@@ -476,28 +483,34 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
             <div className="mt-4 bg-orange-50 border border-orange-100 p-4 rounded-xl">
               <div className="flex items-start gap-2 text-orange-800 text-sm mb-3">
                 <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
-                <p><strong>Regra da loja:</strong> Mínimo 30 unidades | 15 unidades de cada sabor. {isFreeQuantityFesta && <span className="block mt-1 font-semibold">Obs: A partir de 100 unidades é possível escolher até 4 sabores (descreva no campo de observações abaixo).</span>} {isEmpada && <span className="block mt-1 font-semibold">Tamanho festa (4 a 6 unidades por pessoa).</span>}</p>
+                <p><strong>Regra da loja:</strong> Mínimo {getFestaMinQty()} unidades | {getFestaMinQty() / 2} unidades de cada sabor. {isFreeQuantityFesta && <span className="block mt-1 font-semibold">Obs: A partir de 100 unidades é possível escolher até 4 sabores (descreva no campo de observações abaixo).</span>} {isEmpada && <span className="block mt-1 font-semibold">Tamanho festa (4 a 6 unidades por pessoa).</span>}</p>
               </div>
 
               <div className="bg-white p-3 rounded-lg shadow-sm border border-orange-100">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={isHalfHalf} onChange={(e) => setIsHalfHalf(e.target.checked)} className="rounded text-brand-purple focus:ring-brand-purple h-4 w-4" />
-                  <span className="font-medium text-sm text-gray-800">{isFreeQuantityFesta ? 'Quero dividir em mais sabores' : 'Quero Meio a Meio (15 de cada)'}</span>
+                  <span className="font-medium text-sm text-gray-800">{isFreeQuantityFesta ? 'Quero dividir em mais sabores' : `Quero Meio a Meio (${getFestaMinQty() / 2} de cada)`}</span>
                 </label>
 
                 {isHalfHalf && (
-                  <div className="mt-3">
-                    <p className="text-xs text-gray-500 mb-2">Escolha o 2º sabor (15 unidades):</p>
-                    <select 
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-brand-purple focus:border-brand-purple block p-2.5"
-                      value={secondHalfId}
-                      onChange={(e) => setSecondHalfId(e.target.value)}
-                    >
-                      <option value="" disabled>Selecione um sabor...</option>
-                      {availableForSecondHalf.map(p => (
-                        <option key={p.id} value={p.id}>{p.code} - {p.title} (+ R$ {(p.priceFesta * 15).toFixed(2).replace('.', ',')})</option>
-                      ))}
-                    </select>
+                  <div className="mt-4 pt-4 border-t border-orange-100">
+                    {isFreeQuantityFesta ? (
+                      <p className="text-sm text-gray-600 mb-2">Descreva no campo de observações abaixo quais sabores você deseja (mínimo de {getFestaMinQty() / 2} por sabor, limitando a 4 sabores no total se passar de 100 unidades):</p>
+                    ) : (
+                      <>
+                        <p className="text-xs text-gray-500 mb-2">Escolha o 2º sabor ({getFestaMinQty() / 2} unidades):</p>
+                        <select 
+                          className="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-brand-purple focus:border-brand-purple block p-2.5"
+                          value={secondHalfId}
+                          onChange={(e) => setSecondHalfId(e.target.value)}
+                        >
+                          <option value="" disabled>Selecione um sabor...</option>
+                          {availableForSecondHalf.map(p => (
+                            <option key={p.id} value={p.id}>{p.code} - {p.title} (+ R$ {(p.priceFesta * (getFestaMinQty() / 2)).toFixed(2).replace('.', ',')})</option>
+                          ))}
+                        </select>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
@@ -525,8 +538,8 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
               <div className="flex items-center bg-gray-100 rounded-full p-1">
               <button 
                 className="w-8 h-8 flex items-center justify-center text-brand-purple rounded-full hover:bg-white transition-colors disabled:opacity-50"
-                onClick={() => setQuantity(Math.max(size === 'festa' && isFreeQuantityFesta ? 30 : (size === 'normal' ? getNormalMinQty() : 1), quantity - 1))}
-                disabled={size === 'festa' && isFreeQuantityFesta ? quantity <= 30 : (size === 'normal' ? quantity <= getNormalMinQty() : quantity <= 1)}
+                onClick={() => setQuantity(Math.max(size === 'festa' && isFreeQuantityFesta ? getFestaMinQty() : (size === 'normal' ? getNormalMinQty() : 1), quantity - 1))}
+                disabled={size === 'festa' && isFreeQuantityFesta ? quantity <= getFestaMinQty() : (size === 'normal' ? quantity <= getNormalMinQty() : quantity <= 1)}
               >
                 <Minus size={16} />
               </button>
