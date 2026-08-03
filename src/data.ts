@@ -2716,7 +2716,7 @@ export const PRODUCTS: Product[] = [
     title: 'Carne de panela com cebola caramelizada, alface roxo e cream cheese',
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
-    priceFesta: 3.40,
+    priceFesta: 3.90,
     imageUrl: '/barquetes.jpg',
     isAvailableNow: true
   },
@@ -2727,7 +2727,7 @@ export const PRODUCTS: Product[] = [
     title: 'Presunto de Parma com pesto de tomate seco, cream cheese e alface roxo',
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
-    priceFesta: 3.80,
+    priceFesta: 4.20,
     imageUrl: '/barquetes.jpg',
     isAvailableNow: true
   },
@@ -2738,7 +2738,7 @@ export const PRODUCTS: Product[] = [
     title: 'Pasta de azeitonas com nozes, mel, queijo fatiado, cream cheese e espinafre',
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
-    priceFesta: 3.40,
+    priceFesta: 3.90,
     imageUrl: '/barquetes.jpg',
     isAvailableNow: true
   },
@@ -2749,7 +2749,7 @@ export const PRODUCTS: Product[] = [
     title: 'Frango desfiado com geleia de pimenta, provolone, cream cheese e alface roxo',
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
-    priceFesta: 3.40,
+    priceFesta: 3.60,
     imageUrl: '/barquetes.jpg',
     isAvailableNow: true
   },
@@ -2760,7 +2760,7 @@ export const PRODUCTS: Product[] = [
     title: 'Fraldinha acebolada com queijo e cebola caramelizada',
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
-    priceFesta: 3.80,
+    priceFesta: 3.90,
     imageUrl: '/barquetes.jpg',
     isAvailableNow: true
   }
