@@ -1528,7 +1528,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanhos: 25g (Camarão assado com massa amanteigado e requeijão). Mínimo 30 unidades.',
     priceNormal: 0,
     priceFesta: 3.50,
-    imageUrl: '/Camarão.jpeg',
+    imageUrl: '/camarao_oficial.jpeg',
     isAvailableNow: false
   },
 
