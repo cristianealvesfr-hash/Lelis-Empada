@@ -13,7 +13,7 @@ const VISUAL_CATEGORIES = [
   { id: 'sanduiche', label: 'Mini Sanduíches', img: '/mini_sanduiche_oficial.jpeg' },
   { id: 'quibe', label: 'Quibe Recheado', img: '/quibe_oficial.jpeg' },
   { id: 'sufle', label: 'Suflês Salgados', img: '/sufle_oficial.jpeg' },
-  { id: 'camarao', label: 'Camarão Encapotado', img: '/camarao_oficial.jpeg' },
+  { id: 'camarao', label: 'Camarão Encapotado', img: '/camarao_encapotado_real.jpg' },
   { id: 'rocambole', label: 'Rocamboles', img: '/rocambole_oficial.jpeg' },
   { id: 'pao-saboroso', label: 'Pão Saboroso', img: '/pao_saboroso_oficial.jpeg' },
   { id: 'torta-alta', label: 'Mini Torta Alta', img: '/mini_torta_alta_oficial.jpeg' },
