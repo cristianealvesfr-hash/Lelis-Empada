@@ -17,6 +17,16 @@ export const HeroSlider: React.FC<{ onOpenCalculator?: () => void }> = ({ onOpen
 
   const slides: Slide[] = [
     {
+      id: 0,
+      title: "Lançamento: Mini Barquetes",
+      subtitle: "Deliciosas barquetes recheadas. Perfeitas para deixar o seu evento ainda mais especial!",
+      badge: "NOVIDADE",
+      badgeBg: "bg-rose-500",
+      image: "/mini_barquetes_oficial.jpeg",
+      actionText: "Experimentar",
+      icon: <Award size={16} />
+    },
+    {
       id: 1,
       title: "Empadas Artesanais & Gourmet",
       subtitle: "Massa leve que derrete na boca. Produzidas sob encomenda com ingredientes selecionados.",

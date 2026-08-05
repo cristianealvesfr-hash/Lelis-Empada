@@ -11,6 +11,7 @@ const VISUAL_CATEGORIES = [
   { id: 'quiche', label: 'Quiches', img: '/calabresa acebolado.jpeg' },
   { id: 'torta-maca', label: 'Torta de Maçã', img: '/torta_maca_oficial.jpeg' },
   { id: 'sanduiche', label: 'Mini Sanduíches', img: '/mini_sanduiche_oficial.jpeg' },
+  { id: 'barquetes', label: 'Mini Barquetes', img: '/mini_barquetes_oficial.jpeg' },
   { id: 'quibe', label: 'Quibe Recheado', img: '/quibe_oficial.jpeg' },
   { id: 'sufle', label: 'Suflês Salgados', img: '/sufle_oficial.jpeg' },
   { id: 'camarao', label: 'Camarão Encapotado', img: '/camarao_encapotado_real.jpg' },

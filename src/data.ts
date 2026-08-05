@@ -2717,7 +2717,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
     priceFesta: 3.90,
-    imageUrl: '/barquetes.jpg',
+    imageUrl: '/mini_barquetes_oficial.jpeg',
     isAvailableNow: true
   },
   {
@@ -2728,7 +2728,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
     priceFesta: 4.20,
-    imageUrl: '/barquetes.jpg',
+    imageUrl: '/mini_barquetes_oficial.jpeg',
     isAvailableNow: true
   },
   {
@@ -2739,7 +2739,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
     priceFesta: 3.90,
-    imageUrl: '/barquetes.jpg',
+    imageUrl: '/mini_barquetes_oficial.jpeg',
     isAvailableNow: true
   },
   {
@@ -2750,7 +2750,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
     priceFesta: 3.60,
-    imageUrl: '/barquetes.jpg',
+    imageUrl: '/mini_barquetes_oficial.jpeg',
     isAvailableNow: true
   },
   {
@@ -2761,7 +2761,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mínimo 30 unidades / 2 sabores - 15 de cada.',
     priceNormal: 0,
     priceFesta: 3.90,
-    imageUrl: '/barquetes.jpg',
+    imageUrl: '/mini_barquetes_oficial.jpeg',
     isAvailableNow: true
   }
 ];
