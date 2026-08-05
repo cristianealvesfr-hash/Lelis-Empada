@@ -1096,7 +1096,7 @@ export const PRODUCTS: Product[] = [
     pricePequena: 70.00,
     priceMedia: 97.00,
     priceGrande: 165.00,
-    imageUrl: '/quiche.jpg',
+    imageUrl: '/queijo_gouda.jpeg',
     isAvailableNow: true
   },
   {
