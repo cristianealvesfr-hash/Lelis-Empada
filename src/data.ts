@@ -159,7 +159,7 @@ export const PRODUCTS: Product[] = [
     description: 'Frango desfiado temperado com queijo derretido de alta qualidade.',
     priceNormal: 4.50,
     priceFesta: 2.50,
-    imageUrl: '/frango com queijo.jpeg',
+    imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
   {
@@ -192,7 +192,7 @@ export const PRODUCTS: Product[] = [
     description: 'Portuguesa',
     priceNormal: 4.50,
     priceFesta: 2.50,
-    imageUrl: '/Portuguesa.jpeg',
+    imageUrl: '/empadas_real.jpg',
     isAvailableNow: true
   },
   {
@@ -247,7 +247,7 @@ export const PRODUCTS: Product[] = [
     description: 'Acebolado (cebola, bacon, calabresa)',
     priceNormal: 4.50,
     priceFesta: 2.50,
-    imageUrl: '/calabresa acebolado.jpeg',
+    imageUrl: '/empadas_real.jpg',
     isAvailableNow: true
   },
   {
@@ -469,7 +469,7 @@ export const PRODUCTS: Product[] = [
     description: 'Carne de fumeiro desfiada combinada com o adocicado de banana da terra caramelizada.',
     priceNormal: 6.50,
     priceFesta: 3.10,
-    imageUrl: '/sertanejo.jpeg',
+    imageUrl: '/empadas_real.jpg',
     isAvailableNow: true
   },
   {
@@ -480,7 +480,7 @@ export const PRODUCTS: Product[] = [
     description: 'Sabor marcante de queijo reino tradicional balanceado com geleia suave de damasco.',
     priceNormal: 5.50,
     priceFesta: 3.10,
-    imageUrl: '/Queijo Reino.jpeg',
+    imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
   {
@@ -1930,7 +1930,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
     priceNormal: 85.00,
     priceFesta: 0,
-    imageUrl: '/Queijo Reino.jpeg',
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
     isAvailableNow: false
   },
   {
@@ -2029,7 +2029,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 12x09 cm | Serve aprox. 6 fatias. (Sabor Especial)',
     priceNormal: 85.00,
     priceFesta: 0,
-    imageUrl: '/sertanejo.jpeg',
+    imageUrl: '/mini_torta_alta_oficial.jpeg',
     isAvailableNow: false
   },
   {
@@ -2132,7 +2132,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
     priceNormal: 250.00,
     priceFesta: 0,
-    imageUrl: '/sertanejo.jpeg',
+    imageUrl: '/torta_salgada_oficial.jpeg',
     isAvailableNow: false
   },
   {
@@ -2176,7 +2176,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
     priceNormal: 195.00,
     priceFesta: 0,
-    imageUrl: '/frango com queijo.jpeg',
+    imageUrl: '/torta_salgada_frango.jpeg',
     isAvailableNow: false
   },
   {
@@ -2209,7 +2209,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
     priceNormal: 190.00,
     priceFesta: 0,
-    imageUrl: '/Portuguesa.jpeg',
+    imageUrl: '/torta_salgada_oficial.jpeg',
     isAvailableNow: false
   },
   {
@@ -2231,7 +2231,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 22x09 cm | Serve aprox. 16 fatias.',
     priceNormal: 250.00,
     priceFesta: 0,
-    imageUrl: '/Queijo Reino.jpeg',
+    imageUrl: '/torta_salgada_oficial.jpeg',
     isAvailableNow: false
   },
   {
@@ -2528,7 +2528,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
     priceNormal: 19.00,
     priceFesta: 0,
-    imageUrl: '/Queijo Reino.jpeg',
+    imageUrl: '/mini_torta_baby.jpeg',
     isAvailableNow: true
   },
   {
@@ -2561,7 +2561,7 @@ export const PRODUCTS: Product[] = [
     description: 'Tamanho: 8x4 altura (decorada conforme sabor). Mínimo: kit com 2 unidades.',
     priceNormal: 19.00,
     priceFesta: 0,
-    imageUrl: '/sertanejo.jpeg',
+    imageUrl: '/mini_torta_baby.jpeg',
     isAvailableNow: true
   },
   {
