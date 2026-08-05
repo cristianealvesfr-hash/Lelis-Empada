@@ -1148,7 +1148,7 @@ export const PRODUCTS: Product[] = [
     pricePequena: 70.00,
     priceMedia: 97.00,
     priceGrande: 185.00,
-    imageUrl: '/quiche.jpg',
+    imageUrl: '/Camarão.jpeg',
     isAvailableNow: true
   },
   {
