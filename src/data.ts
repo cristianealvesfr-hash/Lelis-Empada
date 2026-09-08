@@ -1308,6 +1308,19 @@ export const PRODUCTS: Product[] = [
     imageUrl: '/quiche.jpg',
     isAvailableNow: true
   },
+  {
+    id: 'qui33',
+    category: 'quiche',
+    code: 'A40',
+    title: 'Ricota com espinafre e queijo provolone',
+    priceNormal: 0,
+    priceFesta: 0,
+    pricePequena: 70.00,
+    priceMedia: 97.00,
+    priceGrande: 185.00,
+    imageUrl: '/quiche.jpg',
+    isAvailableNow: true
+  },
 
   // --- Torta de Maçã ---
   {
