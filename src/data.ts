@@ -271,7 +271,7 @@ export const PRODUCTS: Product[] = [
     title: 'Carne do sol com coalho',
     description: 'Carne do sol desfiada e acebolada combinada com cubos de queijo coalho grelhado.',
     priceNormal: 5.50,
-    priceFesta: 3.20,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: true
   },
@@ -282,7 +282,7 @@ export const PRODUCTS: Product[] = [
     title: 'Carne seca com queijo coalho',
     description: 'Carne seca desfiada e temperada combinada com queijo coalho derretido.',
     priceNormal: 5.50,
-    priceFesta: 3.20,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -293,7 +293,7 @@ export const PRODUCTS: Product[] = [
     title: 'Tropical especial (com abacaxi)',
     description: 'Combinação agridoce surpreendente de presunto picado, queijo e abacaxi.',
     priceNormal: 5.50,
-    priceFesta: 3.00,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -304,7 +304,7 @@ export const PRODUCTS: Product[] = [
     title: 'Mix de presunto parma com nozes, mel e pera',
     description: 'Combinação refinada de presunto parma, nozes, mel e pera caramelizada.',
     priceNormal: 5.50,
-    priceFesta: 3.40,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -315,7 +315,7 @@ export const PRODUCTS: Product[] = [
     title: 'Camarão puro',
     description: 'Recheio farto de camarões inteiros salteados (sem catupiry ou pimenta).',
     priceNormal: 5.50,
-    priceFesta: 2.85,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -325,7 +325,7 @@ export const PRODUCTS: Product[] = [
     code: 'E06',
     title: 'Camarão com requeijão e pimenta bico',
     description: 'Camarões selecionados ao creme de requeijão com toque suave de pimenta biquinho.',
-    priceNormal: 6.00,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
@@ -358,8 +358,8 @@ export const PRODUCTS: Product[] = [
     code: 'E09',
     title: 'Presunto de parma agridoce',
     description: 'Presunto parma desfiado com fios doces e caramelizados.',
-    priceNormal: 6.50,
-    priceFesta: 3.40,
+    priceNormal: 5.50,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -402,7 +402,7 @@ export const PRODUCTS: Product[] = [
     code: 'E13',
     title: 'Bacalhau cremoso com azeitonas',
     description: 'Bacalhau desfiado temperado com azeite, creme e azeitonas pretas picadas.',
-    priceNormal: 6.00,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
@@ -436,7 +436,7 @@ export const PRODUCTS: Product[] = [
     title: 'Queijo minas com tomate seco',
     description: 'Opção leve e refinada com queijo minas macio e tomates secos marinados.',
     priceNormal: 5.50,
-    priceFesta: 3.40,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -457,8 +457,8 @@ export const PRODUCTS: Product[] = [
     code: 'E18',
     title: 'Catado de siri',
     description: 'Carne de siri temperada no dendê com coco e decorada com camarão fresco.',
-    priceNormal: 5.80,
-    priceFesta: 3.40,
+    priceNormal: 5.50,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -468,7 +468,7 @@ export const PRODUCTS: Product[] = [
     code: 'E19',
     title: 'Sertanejo especial',
     description: 'Carne de fumeiro desfiada combinada com o adocicado de banana da terra caramelizada.',
-    priceNormal: 6.50,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: true
@@ -501,7 +501,7 @@ export const PRODUCTS: Product[] = [
     code: 'E22',
     title: 'Supremo de alho poró com calabresa',
     description: 'Alho poró fresquinho, calabresa fatiada fina e dois queijos (provolone e mussarela).',
-    priceNormal: 6.50,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
@@ -523,7 +523,7 @@ export const PRODUCTS: Product[] = [
     code: 'E24',
     title: 'Gorgonzola com damasco e nozes',
     description: 'Sabor marcante de queijo gorgonzola com toque agridoce de damasco e nozes crocantes.',
-    priceNormal: 6.00,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
@@ -545,7 +545,7 @@ export const PRODUCTS: Product[] = [
     code: 'E26',
     title: 'Carne especial com alho caramelizado',
     description: 'Blend de carne especial desfiada cozida lentamente com dentes de alho adocicados.',
-    priceNormal: 6.50,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
@@ -556,8 +556,8 @@ export const PRODUCTS: Product[] = [
     code: 'E27',
     title: 'Brigadeiro com morango inteiro',
     description: 'Recheio de brigadeiro (preto ou branco) cremoso com morango fresco inteiro no topo.',
-    priceNormal: 6.00,
-    priceFesta: 3.30,
+    priceNormal: 5.50,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -578,7 +578,7 @@ export const PRODUCTS: Product[] = [
     code: 'E30',
     title: 'Peito de peru com castanha caramelizada',
     description: 'Peito de peru agridoce fatiado com crocante de castanhas caramelizadas.',
-    priceNormal: 6.50,
+    priceNormal: 5.50,
     priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
@@ -589,8 +589,8 @@ export const PRODUCTS: Product[] = [
     code: 'E31',
     title: 'Doce de leite com morango inteiro',
     description: 'Creme espesso de doce de leite cremoso coroado com um morango fresco por cima.',
-    priceNormal: 6.50,
-    priceFesta: 3.30,
+    priceNormal: 5.50,
+    priceFesta: 3.10,
     imageUrl: '/empadas_real.jpg',
     isAvailableNow: false
   },
@@ -2819,3 +2819,4 @@ export const PRODUCTS: Product[] = [
     isAvailableNow: true
   }
 ];
+
