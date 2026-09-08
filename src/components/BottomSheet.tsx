@@ -39,7 +39,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ product, isOpen, onClo
   const [barcaFlavor2, setBarcaFlavor2] = useState<string>(''); // Especial
   const [barcaFlavor3, setBarcaFlavor3] = useState<string>(''); // Especial
 
-  const isFreeQuantityFesta = product ? ['simples', 'especiais', 'pasteis', 'dadinho', 'quibe', 'sanduiche', 'barquetes'].includes(product.category) : false;
+  const isFreeQuantityFesta = product ? ['simples', 'especiais', 'pasteis', 'dadinho', 'quibe', 'sanduiche', 'barquetes', 'coxinha'].includes(product.category) : false;
   const isEmpada = product ? ['simples', 'especiais'].includes(product.category) : false;
   
   const getNormalMinQty = () => {

@@ -1,6 +1,6 @@
 export interface Product {
   id: string;
-  category: 'simples' | 'especiais' | 'paozinho' | 'pasteis' | 'hamburguer' | 'barca';
+  category: 'simples' | 'especiais' | 'paozinho' | 'pasteis' | 'hamburguer' | 'barca' | 'quiche' | 'torta-maca' | 'sanduiche' | 'quibe' | 'sufle' | 'camarao' | 'rocambole' | 'pao-saboroso' | 'torta-alta' | 'torta-baby' | 'dadinho' | 'bolo-caseiro' | 'torta-salgada' | 'cheesecake' | 'torta-vienense' | 'taca-gourmet' | 'tortinha-baby' | 'terrine' | 'barquetes' | 'coxinha' | string;
   code: string;
   title: string;
   description?: string;
@@ -81,6 +81,7 @@ export const CATEGORIES = [
   { id: 'dadinho', label: 'Dadinho de Tapioca' },
   { id: 'terrine', label: 'Terrine Doce & Salgado' },
   { id: 'barquetes', label: 'Mini Sanduíches de Barquetes Recheados' },
+  { id: 'coxinha', label: 'Coxinhas tamanho festa (mínimo 30 Unidades)' },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -2762,6 +2763,46 @@ export const PRODUCTS: Product[] = [
     priceNormal: 0,
     priceFesta: 3.90,
     imageUrl: '/mini_barquetes_oficial.jpeg',
+    isAvailableNow: true
+  },
+  {
+    id: 'cox-1',
+    category: 'coxinha',
+    code: 'COX1',
+    title: 'Frango com requeijão',
+    priceNormal: 0,
+    priceFesta: 2.90,
+    imageUrl: '/coxinha_festa.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'cox-2',
+    category: 'coxinha',
+    code: 'COX2',
+    title: 'Fraldinha com requeijão',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/coxinha_festa.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'cox-3',
+    category: 'coxinha',
+    code: 'COX3',
+    title: 'Carne seca com requeijão',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/coxinha_festa.jpg',
+    isAvailableNow: true
+  },
+  {
+    id: 'cox-4',
+    category: 'coxinha',
+    code: 'COX4',
+    title: 'Camarão com requeijão',
+    priceNormal: 0,
+    priceFesta: 3.10,
+    imageUrl: '/coxinha_festa.jpg',
     isAvailableNow: true
   }
 ];

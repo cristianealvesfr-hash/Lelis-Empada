@@ -26,6 +26,7 @@ const VISUAL_CATEGORIES = [
   { id: 'torta-vienense', label: 'Torta Vienense', img: '/torta_vienense_oficial.jpeg' },
   { id: 'taca-gourmet', label: 'Taças Gourmet', img: '/taca_gourmet_oficial.jpeg' },
   { id: 'terrine', label: 'Terrine Doce & Salgado', img: '/terrine_doce_e_salgado.jpeg' },
+  { id: 'coxinha', label: 'Coxinhas', img: '/coxinha_festa.jpg' },
 ];
 
 interface CategoryNavProps {
