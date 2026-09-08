@@ -81,7 +81,7 @@ export const CATEGORIES = [
   { id: 'dadinho', label: 'Dadinho de Tapioca' },
   { id: 'terrine', label: 'Terrine Doce & Salgado' },
   { id: 'barquetes', label: 'Mini Sanduíches de Barquetes Recheados' },
-  { id: 'coxinha', label: 'Coxinha especial' },
+  { id: 'coxinha', label: 'Coxinha Especial' },
 ];
 
 export const PRODUCTS: Product[] = [

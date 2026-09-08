@@ -22,11 +22,6 @@ export const ProductSection: React.FC<ProductSectionProps> = ({ id, title, produ
               ⚠️ Mínimo 30 unidades, 15 de cada sabor
             </span>
           )}
-          {id === 'coxinha' && (
-            <span className="text-[10px] sm:text-xs text-orange-600 font-bold mt-0.5 bg-orange-50 px-2 py-0.5 rounded border border-orange-100/50 self-start">
-              ⚠️ Tamanho festa: Mínimo 30 unidades
-            </span>
-          )}
           {id === 'hamburguer' && (
             <div className="flex flex-col gap-1.5 mt-1 bg-amber-50/80 border border-amber-100 p-2.5 rounded-xl max-w-xl self-start">
               <span className="text-[10px] sm:text-[11px] text-amber-900 font-extrabold leading-normal">
